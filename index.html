@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#0b0d13">
-<title>Light VS Darkness — Solo</title>
+<title>Light VS Darkness</title>
 <style>:root{--bg:#0b0d13;--bg2:#141824;--bg3:#1d2333;--card:#1a1f2d;--gold:#d9ae55;--gold2:#f5dc94;--text:#ece8de;--muted:#8d93a3;--bad:#e05a4f;--good:#4cc38a;--line:#2b3247}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;background:var(--bg);color:var(--text);font:15px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden;touch-action:manipulation}
@@ -205,6 +205,40 @@ body.targeting .dimmed{opacity:.3;filter:grayscale(.8)}
 .dbtn{flex:1;min-height:44px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color:var(--muted);font-weight:700;font-size:15px;max-width:150px}
 .dbtn.on{border-color:var(--gold);color:var(--gold2);background:#2a2210;box-shadow:0 0 0 1px var(--gold) inset}
 #diffBlurb{color:var(--muted);font-size:13px;line-height:1.35;margin:8px 4px 0;min-height:36px}
+/* ---------- multiplayer ---------- */
+.lbl{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 6px;font-weight:600}.lbl small{text-transform:none;letter-spacing:0;font-weight:400}
+#plBox{max-width:560px;margin:0 auto 12px;text-align:center}
+#plBtns{display:flex;gap:8px;justify-content:center}
+#scaleBlurb{color:var(--muted);font-size:13px;line-height:1.35;margin:8px 4px 0;min-height:36px}
+#roster{max-width:560px;margin:0 auto 8px;display:grid;gap:6px}
+.rrow{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:12px;border:2px solid var(--line);background:var(--bg2)}
+.rrow.cur{border-color:var(--pc);box-shadow:0 0 0 1px var(--pc) inset}
+.remb{flex:none;width:30px;height:30px;border-radius:50%;background:var(--pc);color:#10131a;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+.rname{flex:1;min-width:0;background:var(--bg3);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:7px 8px;font:inherit;font-size:14px}
+.rmen{flex:none;font-size:12px;color:var(--muted);max-width:42%;text-align:right;line-height:1.2}.rrow.done .rmen{color:var(--gold2);font-weight:700}
+#pickTitle{max-width:560px;margin:4px auto 8px;text-align:center;color:var(--gold2);font-weight:700;font-size:15px}
+.mentor-btn{position:relative}.mentor-btn.taken{opacity:.42}.mentor-btn.mine{border-color:var(--pc,var(--gold));box-shadow:0 0 0 2px var(--pc,var(--gold)) inset}
+.mentor-btn .owner{position:absolute;right:10px;top:8px;width:26px;height:26px;border-radius:50%;background:var(--pc);color:#10131a;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px}
+#startRow{max-width:560px;margin:14px auto 0}
+#playerBar{display:flex;align-items:center;gap:6px;margin-top:6px;overflow-x:auto;scrollbar-width:none}
+.pcur{flex:none;display:flex;flex-direction:column;line-height:1.15;padding:4px 10px;border-radius:12px;background:var(--pc);color:#10131a}
+.pcur b{font-size:14px}.pcur span{font-size:11px;font-weight:600}
+.pchip{flex:none;font-size:12px;padding:5px 9px;border-radius:20px;border:2px solid var(--pc);background:var(--bg3);color:var(--text);white-space:nowrap}
+.pchip.out{opacity:.45;text-decoration:line-through}
+#hud.mp{border-bottom:3px solid var(--pc)}
+#pass{position:fixed;inset:0;z-index:120;background:radial-gradient(circle at 50% 30%,color-mix(in srgb,var(--pc) 28%,#0b0d13),#07080c 70%);display:flex;align-items:center;justify-content:center;padding:20px}
+.pcard{width:min(380px,100%);text-align:center;border:3px solid var(--pc);border-radius:22px;padding:26px 18px;background:#10131ccc;box-shadow:0 0 40px color-mix(in srgb,var(--pc) 45%,transparent)}
+.pemblem{width:84px;height:84px;margin:0 auto 10px;border-radius:50%;background:var(--pc);color:#10131a;font-size:44px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.pto{color:var(--muted);font-size:14px;text-transform:uppercase;letter-spacing:.12em}
+.pcard h2{font-size:32px;color:var(--pc);margin:2px 0 4px}
+.pmentor{color:var(--text);font-size:15px}.pwhy{margin:12px 0 6px;color:var(--gold2);font-size:15px;min-height:40px}
+.phide{color:var(--muted);font-size:13px;margin-bottom:16px}
+#passReady{width:100%;min-height:56px;font-size:18px}
+.ptile{border:2px solid var(--pc)!important;padding:10px!important;min-width:120px}.ptile b{color:var(--pc)}.ptile small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+#endTable{margin:0 0 14px;text-align:left}
+.erow{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:10px;background:var(--bg3);margin-bottom:5px;border-left:6px solid var(--pc);font-size:14px}
+.erow.champ{background:#2a2210;box-shadow:0 0 0 1px var(--gold) inset}.erow b{flex:1}.erow span{color:var(--muted);font-size:12px}
+.lwho{display:inline-block;font-size:11px;font-weight:700;padding:0 6px;border-radius:8px;background:var(--pc);color:#10131a;margin-right:4px}
 </style><link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
@@ -226,9 +260,13 @@ body.targeting .dimmed{opacity:.3;filter:grayscale(.8)}
 <body>
 <div id="selectScreen">
   <div id="logoWrap"><h1>LIGHT VS DARKNESS</h1></div>
-  <p class="sub">Solo Pilgrimage — choose your difficulty and Mentor</p>
-  <div id="diffBox"><div id="diffBtns" role="radiogroup" aria-label="Difficulty"></div><p id="diffBlurb"></p></div>
+  <p class="sub" id="selSub">A pilgrimage for 1 to 4 Light-bearers. Choose difficulty, players and Mentors.</p>
+  <div id="diffBox"><div class="lbl">Difficulty</div><div id="diffBtns" role="radiogroup" aria-label="Difficulty"></div><p id="diffBlurb"></p></div>
+  <div id="plBox"><div class="lbl">Players <small>(one phone, pass it around)</small></div><div id="plBtns" role="radiogroup" aria-label="Number of players"></div><p id="scaleBlurb"></p></div>
+  <div id="roster"></div>
+  <div id="pickTitle"></div>
   <div id="mentorGrid"></div>
+  <div id="startRow" class="hidden"><button class="btn primary" id="btnStart" style="width:100%">Begin the pilgrimage ▶</button></div>
   <p class="sub" style="margin-top:18px"><button class="btn" id="btnHow2">How to play</button></p>
 </div>
 <div id="app" class="hidden">
@@ -244,6 +282,7 @@ body.targeting .dimmed{opacity:.3;filter:grayscale(.8)}
     </div>
     <div class="hrow"><div id="hudPool"></div><span class="hbtn"><button id="btnHow" aria-label="How to play">?</button><button id="btnLog">Log</button><button id="btnQuit" aria-label="Quit">✕</button></span></div>
     <div id="phaseTrack"></div>
+    <div id="playerBar" class="hidden"></div>
     <div class="hintrow"><div id="hint"></div><button id="primaryBtn">Begin turn ▶</button></div>
   </header>
   <main id="board">
@@ -254,14 +293,16 @@ body.targeting .dimmed{opacity:.3;filter:grayscale(.8)}
   <div id="ticker"></div>
   <footer id="handArea"><h4><span>Your hand</span><span id="handCount"></span></h4><div id="hand"></div></footer>
 </div>
+<div id="pass" class="hidden"></div>
 <div id="sheet" class="hidden"></div>
 <div id="ask" class="overlay hidden"></div>
 <div id="announce" class="overlay hidden"></div>
 <div id="tip" class="hidden"></div>
 <div id="logDrawer"><header><b>Game log</b><button class="btn small" id="btnCloseLog">Close</button></header><div id="logList"></div></div>
 <div id="howTo" class="overlay hidden"><div class="modal">
-  <h3>How to play (solo)</h3>
+  <h3>How to play</h3>
   <ul>
+    <li><b>1 to 4 players, one phone:</b> everyone is a Light player with their own Mentor and deck, and you pass the phone. A cover screen says “Pass the phone to Player N” and hides every hand until that player taps “I’m ready”. You win <b>together</b> by demolishing 5 Strongholds; then the player with the most Maturity Points (✦) is the champion. Darkness wins only if <b>every</b> Light player is eliminated.</li>
     <li><b>Win:</b> demolish 5 Strongholds. <b>Lose:</b> your Life (❤) hits 0 a <i>second</i> time. The first time you are Defeated, you <b>Resurrect</b> at the start of your next turn at 15 Life, losing 5 MP (minimum 0). The ✝ in the top bar shows whether your one Resurrection is ready or used.</li>
     <li><b>Free mulligan:</b> if your opening 5 cards have no Anointing card, you are offered one free redraw of all 5 at the start of the game (once).</li>
     <li><b>Your turn:</b> tap the gold button to move through Ready → Draw → Anoint → Main → Attack → End. The bar always tells you what you can do now.</li>
@@ -269,14 +310,14 @@ body.targeting .dimmed{opacity:.3;filter:grayscale(.8)}
     <li><b>Costs:</b> a letter is one anointing of that color (R+2 = 1 Red and 2 of any color). Glowing cards are playable, and the game taps your Anointing cards to pay. Tap a grey card to see why it can’t be played.</li>
     <li><b>Card effects</b> run step by step. When a card needs a choice, the board dims and valid targets glow. Tap to choose, then Confirm. You can Cancel before anything is spent.</li>
     <li><b>Attack:</b> in the Attack phase, tap a glowing Living Truth, then a Stronghold. Damage stays on Strongholds between turns.</li>
-    <li><b>Darkness:</b> <span id="howDark">at the end of Round 4, and then every 2nd round</span>, a Stronghold rises and every Stronghold attacks you one at a time. Play Reactions, then tap Living Truths to block. Leftover damage hits your Life.</li>
+    <li><b>Darkness:</b> <span id="howDark">at the end of Round 4, and then every 2nd round</span>, a Stronghold rises and every Stronghold attacks every Light player, one Stronghold at a time and each player in turn order. When it is your attack, play Reactions, then tap <i>your own</i> Living Truths to block. Leftover damage hits your Life. With 2 or more players the first Dark Turn reveals one Stronghold per player (up to 3).</li>
     <li><b>Mentor:</b> your Mentor gives a passive bonus and transforms into a 7/7 Living Truth when you play a Transform card.</li>
     <li>Tap the <b>i</b> on any card for full details. Tap <b>Log</b> for the full history.</li>
   </ul>
   <div class="askbtns" style="margin-top:12px"><button class="btn" id="btnTips">Turn tips on/off</button><button class="btn primary" id="btnCloseHow">Got it</button></div>
 </div></div>
 <div id="endScreen" class="overlay hidden"><div class="modal" style="text-align:center">
-  <h3 id="endTitle" style="font-size:24px"></h3><p id="endBody" class="pre"></p>
+  <h3 id="endTitle" style="font-size:24px"></h3><p id="endBody" class="pre"></p><div id="endTable"></div>
   <button class="btn primary" id="btnRestart" style="width:100%">Play again</button></div></div>
 <div id="toast"></div>
 <script>window.LVD_ART={"mode": "folder", "keys": ["001", "002", "003", "004", "005", "006", "007", "008", "008T", "009", "009T", "010", "010T", "011", "011T", "012", "012T", "013", "013T", "014", "014T", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "030", "031", "032", "033", "034", "035", "036", "037", "038", "039", "040", "041", "042", "043", "044", "045", "046", "047", "048", "049", "050", "051", "052", "053", "054", "055", "056", "057", "058", "059", "060", "061", "062", "063", "064", "065", "066", "067", "068", "069", "070", "071", "072", "073", "074", "075", "076", "077", "078", "079", "080", "081", "082", "083", "084", "085", "086", "087", "088", "089", "090", "091", "092", "093", "094", "095", "096", "097", "098", "099", "100", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "140", "141", "142", "143", "144", "145", "146", "147", "148", "149", "150", "151", "152", "153", "154", "155", "156", "157", "158", "159", "160", "161", "162", "163", "164", "165", "166", "167", "168", "169", "170", "171", "172", "173", "174", "175", "176", "177", "178", "179", "180", "181", "182", "183", "184", "185", "186", "187", "188", "189", "190", "191", "192", "193", "194", "195", "196", "197", "198", "199", "200", "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "211", "212", "213", "214", "215", "216", "217", "218", "219", "220", "221", "222", "223", "224", "back", "logo"]};</script>
@@ -318,7 +359,7 @@ const EFFECTS = {
   '15': { cls: 'auto' }, '16': { cls: 'auto' }, '17': { cls: 'auto' }, '18': { cls: 'auto' },
   '19': { cls: 'auto' }, '20': { cls: 'auto' }, '21': { cls: 'auto' }, '22': { cls: 'auto' },
   '23': { cls: 'auto' }, '24': { cls: 'auto' }, '25': { cls: 'auto' }, '26': { cls: 'auto' },
-  '27': { cls: 'auto', note: 'Solo: affects only other players, so it has no effect.' },
+  '27': { cls: 'auto', note: 'When any player gains MP, every OTHER player loses 1 anointing (taken from their next anointing). Solo: no other players, so no effect.' },
   '28': { cls: 'auto' }, '29': { cls: 'auto' },
 
   /* ---------------- Equipment ---------------- */
@@ -344,7 +385,9 @@ const EFFECTS = {
   '34': { cls: 'auto', play: [{ op: 'draw', n: 2 }, ch('hand', 1, 'd', 'Discard 1 card from your hand'), { op: 'discard', ref: 'd' }] },
   '35': { cls: 'auto', play: [{ op: 'shield', kind: 'preventAll', rounds: 1 }] },
   '36': { cls: 'auto', play: [{ op: 'fx', key: 'skipDraw', value: 1 }, { op: 'mp', n: 1 }] },
-  '37': { cls: 'partial', note: 'Solo: no other player to give a card to; you gain the 3 Life.', play: [{ op: 'gainLife', n: 3 }] },
+  '37': { cls: 'auto', note: 'With 2+ players: give 1 card from your hand to another player and you both gain 3 Life. Solo: you gain the 3 Life.',
+          play: [{ op: 'ifMulti', then: [ch('player', 1, 'p', 'Choose another Light player to give a card to', { others: true }), ch('hand', 1, 'c', 'Choose a card from your hand to give them'),
+                  { op: 'giveCard', ref: 'c', to: 'p' }, { op: 'lifeTo', to: 'p', n: 3 }, { op: 'gainLife', n: 3 }], else: [{ op: 'gainLife', n: 3 }] }] },
   '38': { cls: 'auto', play: [{ op: 'reveal', n: 2 }, upTo('reveal', 1, 'k', 'Keep one card (the other is discarded)'),
           { op: 'toHand', ref: 'k' }, { op: 'revealRest', to: 'discard' }] },
   '39': { cls: 'auto', play: [{ op: 'if', cond: 'truthsPlayed7', then: [{ op: 'mp', n: 3 }] }] },
@@ -357,8 +400,8 @@ const EFFECTS = {
   '43': { cls: 'auto', play: [{ op: 'heal', n: 5, overflowMp: true }] },
   '48': { cls: 'auto', static: { immune: ['Fear'] } },
   '49': { cls: 'auto', static: { atkPerEquippedLt: 1 } },
-  '64': { cls: 'auto', note: 'Solo: heals you (the only ally).', activated: [{ label: 'Pay 1: heal 2 Life and draw 2', pay: { colored: {}, generic: 1 }, once: 'round',
-          steps: [{ op: 'heal', n: 2 }, { op: 'draw', n: 2 }] }] },
+  '64': { cls: 'auto', note: 'With 2+ players it heals each ally; solo it heals you.', activated: [{ label: 'Pay 1: heal 2 Life and draw 2', pay: { colored: {}, generic: 1 }, once: 'round',
+          steps: [{ op: 'ifMulti', then: [{ op: 'healTo', who: 'others', n: 2 }, { op: 'draw', n: 2 }], else: [{ op: 'heal', n: 2 }, { op: 'draw', n: 2 }] }] }] },
   '65': { cls: 'auto', play: [{ op: 'if', cond: 'redPlayed5', then: [{ op: 'mp', n: 2 }] }] },
   '91': { cls: 'auto', activated: [{ label: 'Sacrifice this card: gain 3 MP', sacSelf: true, steps: [{ op: 'mp', n: 3 }] }] },
   '92': { cls: 'auto', activated: [{ label: 'Pay 3: gain 1 MP', pay: { colored: {}, generic: 3 }, once: 'round', steps: [{ op: 'mp', n: 1 }] }] },
@@ -368,7 +411,7 @@ const EFFECTS = {
           steps: [ch('hand', 1, 'c', 'Choose a card to play for free', { filter: 'truth' }), { op: 'playFree', ref: 'c' }] }] },
   '95': { cls: 'auto', activated: [{ label: 'Pay 2: reveal top card and play it free', pay: { colored: {}, generic: 2 }, once: 'round',
           steps: [{ op: 'reveal', n: 1 }, { op: 'playFree', ref: 'reveal' }] }] },
-  '98': { cls: 'auto', play: [{ op: 'heal', n: 2 }] },
+  '98': { cls: 'auto', play: [{ op: 'ifMulti', then: [{ op: 'healTo', who: 'all', n: 2 }], else: [{ op: 'heal', n: 2 }] }] },
   '99': { cls: 'auto', static: { extraDraw: 1 } },
   '100': { cls: 'auto', play: [{ op: 'fx', key: 'doubleGen', value: true, rounds: 1 }] },
   '101': { cls: 'auto', play: [upTo('sh', 1, 'sh', 'Choose a Stronghold: its next attack deals 0'), { op: 'negateNext', ref: 'sh' }] },
@@ -378,7 +421,8 @@ const EFFECTS = {
           play: [{ op: 'playerAction', key: 'sang', label: 'I sang a praise verse aloud (+1 MP)', steps: [{ op: 'mp', n: 1 }] }] },
   '112': { cls: 'auto', static: { negateFirstAttack: true }, note: 'Delays (negates) the first Stronghold attack against you.' },
   '113': { cls: 'auto', play: [{ op: 'draw', n: 1 }] },
-  '114': { cls: 'auto', play: [{ op: 'shield', kind: 'noLifeLoss', rounds: 1 }] },
+  '114': { cls: 'auto', play: [{ op: 'ifMulti', then: [ch('player', 1, 'p', 'Choose one player: they cannot lose Life this round (yourself or an ally)'), { op: 'shield', kind: 'noLifeLoss', rounds: 1, to: 'p', mpIfOther: 2 }],
+          else: [{ op: 'shield', kind: 'noLifeLoss', rounds: 1 }] }] },
   '115': { cls: 'auto', play: [{ op: 'randomDiscardToHand' }] },
   '116': { cls: 'auto', play: [{ op: 'draw', n: 1 }, { op: 'transform' }] },
   '118': { cls: 'auto', static: { negateFirstAttack: true, drawOnNegate: true } },
@@ -393,10 +437,13 @@ const EFFECTS = {
   '161': { cls: 'auto', static: { costLess: 'Y' } }, '162': { cls: 'auto', static: { costLess: 'G' } },
   '163': { cls: 'auto', static: { costLess: 'P' } }, '164': { cls: 'auto', static: { costLess: 'R' } },
   '165': { cls: 'auto', static: { costLess: 'L' } }, '166': { cls: 'auto', static: { costLess: 'D' } },
-  '167': { cls: 'manual', note: 'Copies another player\'s ongoing effect — no other players in solo.' },
+  '167': { cls: 'auto', note: 'You may copy one ongoing effect another Light player controls for this round: an Anointing card gives you double its anointing; a Living Truth with a lasting effect (cost discount, extra draw, upkeep heal, first-attack negation) gives you that effect. In a solo game it is a plain Living Truth.',
+          play: [{ op: 'ifMulti', then: [upTo('player', 1, 'p', 'You may choose another Light player to copy an ongoing effect from (or skip)', { others: true, needs: true }),
+                 upTo('ongoing', 1, 'c', 'Choose one of their ongoing effects to copy for this round', { ofPlayer: 'p' }), { op: 'copyOngoing', ref: 'c' }], else: [] }] },
   '185': { cls: 'auto', onAttack: [{ op: 'anoint', n: 1, color: 'D' }], static: { meditate: true } },
-  '197': { cls: 'partial', note: 'Solo: no other player\'s Living Truth to target; this card gets +2/+2 this round.',
-          play: [{ op: 'buff', ref: 'self', atk: 2, hp: 2, dur: 'round' }] },
+  '197': { cls: 'auto', note: 'With 2+ players: target another player\'s Living Truth; both it and this card get +2/+2 this round, and if the target is destroyed this card doubles its attack and HP. Solo: this card gets +2/+2 this round.',
+          play: [{ op: 'ifMulti', then: [ch('otherLt', 1, 'o', 'Choose another player\'s Living Truth: it and this card get +2/+2 this round'), { op: 'buff', ref: 'self', atk: 2, hp: 2, dur: 'round' },
+                  { op: 'buff', ref: 'o', atk: 2, hp: 2, dur: 'round' }, { op: 'natureBond', ref: 'o' }], else: [{ op: 'buff', ref: 'self', atk: 2, hp: 2, dur: 'round' }] }] },
   '198': { cls: 'auto', onAttack: [SHPROT(2)], note: 'Stronghold effects cancelled through the next round.' },
   '206': { cls: 'auto', static: { immune: ['Poverty'], doubleVs: 'Poverty' } },
   '207': { cls: 'auto', onAttack: [{ op: 'peaceBeStill' }] },
@@ -419,15 +466,18 @@ const EFFECTS = {
   '45': { cls: 'auto', play: [ch('hand', 1, 'd', 'Discard 1 card (cost)'), { op: 'discard', ref: 'd' }, { op: 'draw', n: 2 }, SHPROT(1)] },
   '46': { cls: 'auto', play: [{ op: 'reveal', n: 1 }, { op: 'walkInLight' }] },
   '47': { cls: 'auto', play: [{ op: 'shield', kind: 'cancelAttacks', rounds: 2 }, { op: 'mp', n: 1 }], note: 'Protects through the next round.' },
-  '50': { cls: 'auto', note: 'Solo: the "fewer permanents than another player" clause cannot trigger.',
-          play: [ch('hand', 1, 'd', 'Discard 1 card (cost)'), { op: 'discard', ref: 'd' }, { op: 'draw', n: 2 }] },
-  '51': { cls: 'auto', note: 'Solo: no other player to heal, so no bonus draw.', play: [{ op: 'heal', n: 3 }] },
-  '52': { cls: 'auto', note: 'Solo: prevents 2 damage to you or your cards this round; +1 MP when it prevents.', play: [{ op: 'shield', kind: 'prevent', n: 2, rounds: 1, mpOnUse: 1 }] },
+  '50': { cls: 'auto', note: '+1 anointing (colorless) if another player has more permanent cards in play than you.',
+          play: [ch('hand', 1, 'd', 'Discard 1 card (cost)'), { op: 'discard', ref: 'd' }, { op: 'draw', n: 2 }, { op: 'if', cond: 'fewerPermanents', then: [{ op: 'anoint', n: 1, color: 'C' }] }] },
+  '51': { cls: 'auto', note: 'Draw 1 if you healed another player earlier this turn (with a card or ability).', play: [{ op: 'heal', n: 3 }, { op: 'if', cond: 'healedOtherThisTurn', then: [{ op: 'draw', n: 1 }] }] },
+  '52': { cls: 'auto', note: 'You choose which Light player (you or an ally) gets the 2-damage shield this round; +1 MP to you when it prevents.',
+          play: [{ op: 'ifMulti', then: [ch('player', 1, 'p', 'Choose a Light player to protect (an ally, or yourself)'), { op: 'shield', kind: 'prevent', n: 2, rounds: 1, mpOnUse: 1, to: 'p' }],
+                  else: [{ op: 'shield', kind: 'prevent', n: 2, rounds: 1, mpOnUse: 1 }] }] },
   '53': { cls: 'auto', play: [{ op: 'reveal', n: 2 }, ch('reveal', 1, 'k', 'Add 1 card to your hand (the other goes to the bottom)'),
           { op: 'toHand', ref: 'k' }, { op: 'revealRest', to: 'bottom' }] },
-  '54': { cls: 'auto', play: [{ op: 'if', cond: 'belowHalfLife', then: [{ op: 'mp', n: 1 }] }, { op: 'heal', n: 3 }] },
+  '54': { cls: 'auto', play: [{ op: 'ifMulti', then: [ch('player', 1, 'p', 'Choose a Light player to heal 3 Life (yourself or an ally)'), { op: 'healTo', to: 'p', n: 3, mpIfBelowHalf: 1 }],
+          else: [{ op: 'if', cond: 'belowHalfLife', then: [{ op: 'mp', n: 1 }] }, { op: 'heal', n: 3 }] }] },
   '55': { cls: 'auto', play: [...DMG(3), { op: 'draw', n: 1 }] },
-  '56': { cls: 'auto', play: [{ op: 'gainLife', n: 2 }], note: 'Solo: no damage between players to prevent.' },
+  '56': { cls: 'auto', play: [{ op: 'gainLife', n: 2 }], note: 'This game has no damage between players, so only the +2 Life applies.' },
   '57': { cls: 'auto', play: [{ op: 'shield', kind: 'persecuted', rounds: 1 }] },
   '66': { cls: 'auto', play: [{ op: 'fx', key: 'abide', value: true }] },
   '67': { cls: 'auto', play: [ch('hand', 1, 'c', 'Choose a Truth card in hand to play free', { filter: 'truth' }), { op: 'playFree', ref: 'c' }] },
@@ -441,7 +491,7 @@ const EFFECTS = {
           { op: 'playFree', ref: 'p' }, { op: 'revealRest', to: 'bottom' }] },
   '72': { cls: 'auto', play: [upTo('exhaustedGen', 1, 'g', 'Choose a spent Anointing card to refresh'), { op: 'refreshGen', ref: 'g' }, { op: 'draw', n: 2 }] },
   '73': { cls: 'auto', play: [{ op: 'shield', kind: 'noLifeLoss', rounds: 1 }] },
-  '74': { cls: 'auto', play: [{ op: 'draw', n: 1 }, { op: 'heal', n: 2 }, { op: 'mp', n: 1 }] },
+  '74': { cls: 'auto', play: [{ op: 'ifMulti', then: [{ op: 'drawAll', n: 1 }, { op: 'healTo', who: 'all', n: 2, mpPerPlayer: 1 }], else: [{ op: 'draw', n: 1 }, { op: 'heal', n: 2 }, { op: 'mp', n: 1 }] }] },
   '75': { cls: 'auto', play: [ch('discard', 1, 'c', 'Choose a card in your discard to return to play'), { op: 'returnToPlay', ref: 'c' }, { op: 'mp', n: 2 }] },
   '76': { cls: 'auto', play: [SHPROT(1), { op: 'draw', n: 1 }] },
   '77': { cls: 'auto', play: [{ op: 'mpPerInPlay' }], note: 'Interpreted as +1 MP for each of your cards in play.' },
@@ -478,11 +528,12 @@ const EFFECTS = {
   '121': { cls: 'auto', play: DMG(5) },
   '122': { cls: 'auto', play: [SHPROT(1), { op: 'search', filter: 'truth', optional: true }] },
   '123': { cls: 'auto', play: [{ op: 'anoint', n: 2, color: 'choose' }, { op: 'if', cond: 'handLt3', then: [{ op: 'draw', n: 1 }] }] },
-  '124': { cls: 'auto', note: 'Solo: no opponents to count for MP.', play: [upTo('discard', 1, 'c', 'Return 1 discarded card to your hand'), { op: 'toHand', ref: 'c' }] },
+  '124': { cls: 'auto', note: 'With 2+ players every Light player in turn order may return 1 discarded card; you gain 1 MP for each opponent who does.',
+          play: [{ op: 'ifMulti', then: [{ op: 'returnAll' }], else: [upTo('discard', 1, 'c', 'Return 1 discarded card to your hand'), { op: 'toHand', ref: 'c' }] }] },
   '125': { cls: 'auto', play: [SH('Choose a Stronghold to shut down for 2 rounds'), { op: 'pacify', ref: 'sh', rounds: 2 }] },
   '126': { cls: 'auto', play: [{ op: 'distribute', n: 7 }] },
-  '127': { cls: 'auto', play: [{ op: 'draw', n: 1, rareMp: 1 }] },
-  '128': { cls: 'auto', play: [upTo('sh', 1, 'sh', 'Choose a Stronghold: its next attack is negated'), { op: 'negateNext', ref: 'sh' }, { op: 'anoint', n: 1, color: 'choose' }] },
+  '127': { cls: 'auto', play: [{ op: 'ifMulti', then: [{ op: 'drawAll', n: 1, rareMpOnce: 1 }], else: [{ op: 'draw', n: 1, rareMp: 1 }] }] },
+  '128': { cls: 'auto', play: [upTo('sh', 1, 'sh', 'Choose a Stronghold: its next attack is negated'), { op: 'negateNext', ref: 'sh' }, { op: 'anoint', n: 1, color: 'choose' }, { op: 'ifMulti', then: [{ op: 'anointOthers', n: 1 }], else: [] }] },
   '129': { cls: 'auto', play: [{ op: 'search', filter: 'livingTruth' }] },
   '130': { cls: 'auto', play: [SHPROT(1), { op: 'draw', n: 1 }] },
   '131': { cls: 'auto', play: [{ op: 'damageAll', n: 2, n5IfLt5: true }] },
@@ -502,7 +553,7 @@ const EFFECTS = {
   '160': { cls: 'auto', play: DESTROY },
   '179': { cls: 'auto', play: [ch('lt', 1, 'c', 'Choose a card: it cannot be targeted by Dark attacks for 3 rounds'), { op: 'flag', ref: 'c', key: 'untargetable', rounds: 3 }] },
   '180': { cls: 'auto', play: [SHPROT(2)], note: 'Silenced through the next Dark round.' },
-  '181': { cls: 'auto', play: [ch('hand', 1, 'd', 'Discard 1 card'), { op: 'discard', ref: 'd' }, { op: 'draw', n: 1, rareMp: 2 }] },
+  '181': { cls: 'auto', play: [{ op: 'ifMulti', then: [{ op: 'discardDrawAll' }], else: [ch('hand', 1, 'd', 'Discard 1 card'), { op: 'discard', ref: 'd' }, { op: 'draw', n: 1, rareMp: 2 }] }] },
   '182': { cls: 'auto', xCost: true, play: [{ op: 'draw', nFrom: 'x' }, ch('hand', 1, 'd', 'Discard 1 card'), { op: 'discard', ref: 'd' }] },
   '183': { cls: 'auto', play: [{ op: 'draw', n: 3 }, ch('hand', 2, 'c', 'Put 2 cards from your hand on top of your deck'), { op: 'toTop', ref: 'c' }] },
   '184': { cls: 'auto', play: [{ op: 'shield', kind: 'immune', names: ['Heaviness'], rounds: 99 }] },
@@ -519,7 +570,7 @@ const EFFECTS = {
   '199': { cls: 'auto', play: [upTo('lt', 3, 'c', 'Choose up to 3 Living Truths for +2/+2'), { op: 'buff', ref: 'c', atk: 2, hp: 2, dur: 'perm' }] },
   '200': { cls: 'auto', play: [{ op: 'buffAll', atk: 2, hp: 2, dur: 'perm' }] },
   '203': { cls: 'auto', play: [ch('hand', 2, 'd', 'Choose 2 cards in hand to remove permanently'), { op: 'discard', ref: 'd', exile: true }, { op: 'mp', n: 3 }] },
-  '204': { cls: 'auto', xCost: true, note: 'Solo: MP clause counts other players only.', play: [{ op: 'gainLife', nFrom: 'x' }] },
+  '204': { cls: 'auto', xCost: true, note: 'With 2+ players every other Light player also gains X Life and you gain 1 MP for every 3 Life they gained.', play: [{ op: 'gainLife', nFrom: 'x' }, { op: 'ifMulti', then: [{ op: 'lifeOthers' }], else: [] }] },
   '205': { cls: 'auto', play: [...DMG(3), { op: 'draw', n: 1 }] },
   '209': { cls: 'auto', xCost: true, play: [SH('Choose a Stronghold to take X damage'), { op: 'damage', ref: 'sh', nFrom: 'x' }] },
   '216': { cls: 'auto', note: 'Removes 3 cards from your HAND, then demolishes a Stronghold.',
@@ -527,7 +578,9 @@ const EFFECTS = {
                  { op: 'discard', ref: 'd' }, { op: 'demolish', ref: 'sh' }] },
   '219': { cls: 'auto', play: [{ op: 'fx', key: 'doubleGen', value: true, rounds: 1 }] },
   '220': { cls: 'auto', play: [SHPROT(1)] },
-  '224': { cls: 'manual', note: 'Two or More needs another player to unite with; no solo equivalent.' },
+  '224': { cls: 'auto', note: 'Needs another Light player who agrees (they are asked). The Stronghold is demolished and both players receive half of its printed MP, rounded up.',
+          play: [ch('player', 1, 'p', 'Choose another Light player to unite with', { others: true }), SH('Choose the Stronghold to demolish together'),
+                 { op: 'agree', ref: 'p', text: 'Demolish a Stronghold together. Both players receive half of its printed MP (rounded up).' }, { op: 'demolishShared', ref: 'sh', with: 'p' }] },
 };
 
 /* ============================================================
@@ -539,7 +592,36 @@ const COLOR_HEX = { R: '#d64533', O: '#ec8a2c', Y: '#f2c94c', G: '#3cb371', L: '
 const COLOR_NAME = { R: 'Red', O: 'Orange', Y: 'Yellow', G: 'Green', L: 'Light Blue', D: 'Dark Blue', P: 'Purple', C: 'Colorless' };
 const PHASE_ORDER = ['ready', 'draw', 'anointing', 'main', 'attack', 'end'];
 
+/* ------------------------------------------------------------------
+   Multiplayer model (1 to 4 Light players, same-device pass-and-play).
+   S = state shared by the whole table (Strongholds, Dark Deck, round, phase, log ...).
+   Every Light player has their own state object (Life, MP, hand, deck, battlefield ...).
+   G is a live VIEW over S plus the CURRENT player P, so all the rules code written as G.life / G.hand / G.lts
+   automatically acts for whoever's turn it is (or whoever is defending during a Dark attack).
+   ------------------------------------------------------------------ */
+const PKEYS = new Set(['idx', 'uid', 'name', 'color', 'emblem', 'deckIndex', 'mentorName', 'mentor', 'deck', 'hand', 'discard', 'exile', 'reveal', 'gens', 'lts', 'pool', 'life', 'mp',
+  'genPlayed', 'occultUsed', 'fx', 'shields', 'tax', 'taxNext', 'taxSource', 'darkNegate', 'playerActions', 'usedActions', 'stats', 'maxLife', 'resurrected', 'pendingRes',
+  'resurrectedRound', 'eliminated', 'skippedTurn', 'mulliganOffer', 'mulliganTaken', 'demoCount']);
+const PLAYER_COLORS = ['#ff6b9a', '#2ec4b6', '#b8e04a', '#c79bff'];
+const PLAYER_EMBLEMS = ['◆', '●', '▲', '■'];
+let S = null, P = null;
 let G = null;
+const G_VIEW = new Proxy({}, {
+  get: (_, k) => (typeof k === 'string' && PKEYS.has(k)) ? P[k] : S[k],
+  set: (_, k, v) => { if (typeof k === 'string' && PKEYS.has(k)) P[k] = v; else S[k] = v; return true; },
+  has: (_, k) => PKEYS.has(k) || k in S,
+  ownKeys: () => [...Object.keys(S), ...PKEYS],
+  getOwnPropertyDescriptor: (_, k) => ({ configurable: true, enumerable: true, writable: true, value: (typeof k === 'string' && PKEYS.has(k)) ? P[k] : S[k] }),
+});
+function setPlayer(p) { P = typeof p === 'number' ? S.players[p] : p; S.cur = P.idx; }
+function withPlayerSync(p, fn) { const prev = P; P = typeof p === 'number' ? S.players[p] : p; S.cur = P.idx; try { return fn(); } finally { P = prev; S.cur = prev.idx; } }
+async function withPlayer(p, fn) { const prev = P; P = typeof p === 'number' ? S.players[p] : p; S.cur = P.idx; try { return await fn(); } finally { P = prev; S.cur = prev.idx; } }
+const multi = () => !!S && S.players.length > 1;
+const inOrder = () => S.order.map(i => S.players[i]);                                     // seats in TURN order (first player first)
+const alivePlayers = () => inOrder().filter(p => !p.eliminated);                       // still in the game (turn order)
+const livingPlayers = () => inOrder().filter(p => !p.eliminated && !p.pendingRes);    // can be targeted by other players' cards
+const otherLiving = () => livingPlayers().filter(p => p !== P);
+const isMentorInst = inst => !!S && S.players.some(p => p.mentor === inst);
 let _uid = 1;
 let rng = Math.random;
 function seedRng(seed) {
@@ -550,7 +632,7 @@ function seedRng(seed) {
 function shuffle(arr) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 const def = id => LVD_DATA.cards[id];
 const eff = id => EFFECTS[id] || {};
-const nameOf = inst => inst === G.mentor ? def(inst.id).name : def(inst.id).name.replace(/\s*-\s*(Common|Uncommon|Rare|Mystic Rare|C|U|R)\s*$/i, '');
+const nameOf = inst => isMentorInst(inst) ? def(inst.id).name : def(inst.id).name.replace(/\s*-\s*(Common|Uncommon|Rare|Mystic Rare|C|U|R)\s*$/i, '');
 function mk(id, extra = {}) { return { uid: 'u' + (_uid++), id: String(id), exhausted: false, damage: 0, attachments: [], permAtk: 0, permHp: 0, tempAtk: 0, tempHp: 0, flags: {}, ...extra }; }
 function emptyPool() { const p = {}; POOLC.forEach(c => p[c] = 0); return p; }
 const poolTotal = p => POOLC.reduce((s, c) => s + (p[c] || 0), 0);
@@ -561,8 +643,14 @@ const isHealing = d => /heal/i.test(d.effect || '');
 const isMeditate = d => /meditat/i.test(d.name);
 
 /* ---------------- logging & UI bridge (UI fills these in) ---------------- */
-const UI = { render() {}, float() {}, fly() {}, announce: async () => {}, choose: async () => [], ask: async () => null, tip() {}, toast() {}, window: async () => {} };
-function log(msg, kind = '') { if (!G) return; G.log.unshift({ msg, kind, round: G.round }); if (G.log.length > 300) G.log.length = 300; }
+const UI = { render() {}, float() {}, fly() {}, announce: async () => {}, choose: async () => [], ask: async () => null, tip() {}, toast() {}, window: async () => {}, pass: async () => {}, defeated() {}, eliminated() {} };
+/* Pass-the-phone: before a different player looks at the screen, the UI shows a cover screen that hides everyone's hand. */
+async function handoff(p, info) {
+  if (!S || S.players.length < 2 || S.gameOver || S.viewer === p.idx) return;
+  S.viewer = p.idx;
+  await UI.pass({ player: p, ...(info || {}) });
+}
+function log(msg, kind = '') { if (!G) return; G.log.unshift({ msg, kind, round: G.round, who: multi() && P ? P.idx : null }); if (G.log.length > 300) G.log.length = 300; }
 
 /* ---------------- durations ---------------- */
 const active = until => until != null && until >= G.round;
@@ -597,9 +685,9 @@ function equipCount() { let n = G.mentor.transformed ? G.mentor.attachments.leng
 function fighters() { const f = G.lts.slice(); if (G.mentor.transformed && !G.mentor.destroyed) f.unshift(G.mentor); return f; }
 function attachBonus(inst, k) { return inst.attachments.reduce((s, a) => { const e = eff(a.id).equip || {}; const b = e.bonus || def(a.id).equipBonus; let v = b ? b[k] : 0; if (e.temp && a.expires >= G.round) v += e.temp[k]; return s + (b || e.temp ? v : 0); }, 0); }
 function baseAtk(inst) {
-  if (inst === G.mentor) return G.mentor.transformed ? 7 : 0;
+  if (isMentorInst(inst)) return inst.transformed ? 7 : 0;
   const d = def(inst.id), st = eff(inst.id).static || {};
-  if (d.type === 'Stronghold') return d.atk || 0;
+  if (d.type === 'Stronghold') return (d.atk || 0) + (CFG.shAtkPerExtra || 0) * (S.players.length - 1);
   if (st.atkFrom === 'equip') return equipCount();
   if (st.atkFrom === 'gens') return G.gens.length;
   let a = d.atk || 0;
@@ -607,7 +695,9 @@ function baseAtk(inst) {
   return a;
 }
 function getAtk(inst) { return Math.max(0, baseAtk(inst) + inst.permAtk + inst.tempAtk + attachBonus(inst, 'atk')); }
-function getMaxHp(inst) { const d = def(inst.id); const b = inst === G.mentor ? 7 : (d.hp || 0); return b + inst.permHp + inst.tempHp + attachBonus(inst, 'hp'); }
+/* Player-count scaling of Strongholds (rule, not a card change): flat HP per extra player and/or a percentage per extra player */
+function shScaledHp(d) { const x = S.players.length - 1; if (x <= 0) return d.hp || 0; return Math.ceil((d.hp || 0) * (1 + (CFG.shHpPctPerExtra || 0) * x)) + (CFG.shHpPerExtra || 0) * x; }
+function getMaxHp(inst) { const d = def(inst.id); const b = isMentorInst(inst) ? 7 : d.type === 'Stronghold' ? shScaledHp(d) : (d.hp || 0); return b + inst.permHp + inst.tempHp + attachBonus(inst, 'hp'); }
 function getCurHp(inst) { return Math.max(0, getMaxHp(inst) - inst.damage); }
 
 /* ---------------- costs & anointing ---------------- */
@@ -692,6 +782,8 @@ function gainMp(n, why) {
   if (n <= 0) return;
   if (fxOn('seatedMp')) n *= 2;
   G.mp += n; log(`You gained ${n} MP${why ? ' (' + why + ')' : ''}.`, 'good'); UI.float('#hudMp', `+${n} MP`, 'mp');
+  if (multi()) { const gainer = P;   // Jealousy: when any player gains MP, all OTHER players lose 1 anointing (taken from their next anointing)
+    for (const q of S.players) if (q !== gainer && !q.eliminated) withPlayerSync(q, () => { if (shEffect('Jealousy')) { q.taxNext += 1; log(`Jealousy: ${gainer.name} gained MP, so ${q.name} will lose 1 anointing next turn.`, 'dark'); } }); }
 }
 function loseMp(n, why) { const before = G.mp; G.mp = Math.max(0, G.mp - n); if (before !== G.mp) { log(`You lost ${before - G.mp} MP (${why}).`, 'bad'); UI.float('#hudMp', `−${before - G.mp} MP`, 'bad'); } }
 function heal(n, overflowMp) {
@@ -711,14 +803,37 @@ function loseLife(n, src) {
   if (G.life <= 0 && save) { save.used = true; G.life = 1; log('Crown of Life: you remain at 1 Life!', 'good'); }
   checkLose(); return n;
 }
-function checkLose() { if (G.life <= 0 && !G.gameOver) {
+function checkLose() { if (G.life <= 0 && !G.eliminated && !G.gameOver) {
   if (G.pendingRes) { G.life = 0; return; }
   if (CFG.resurrect && !G.resurrected) {   // rulebook §8: first time Life hits 0 you are Defeated and Resurrect at 15 Life (−5 MP) at the start of your next turn
     G.resurrected = true; G.pendingRes = true; G.life = 0;
-    log('You are Defeated! At the start of your next turn you will Resurrect at 15 Life and lose 5 MP. This happens only once.', 'bad');
-    if (UI.defeated) UI.defeated(); return; }
-  G.life = 0; G.gameOver = 'lose'; log('Your Life reached 0. Darkness wins.', 'bad'); } }
-function checkWin() { if (G.demolished.length >= 5 && !G.gameOver) { G.gameOver = 'win'; log('Five Strongholds demolished — the Light wins!', 'good'); } }
+    log(`${multi() ? P.name + ' is' : 'You are'} Defeated! At the start of ${multi() ? 'their' : 'your'} next turn ${multi() ? 'they' : 'you'} will Resurrect at 15 Life and lose 5 MP. This happens only once.`, 'bad');
+    if (UI.defeated) UI.defeated(P); return; }
+  G.life = 0; eliminatePlayer(P); } }
+/* Second defeat: this player is eliminated (cards leave play, no more turns, no more attacks on them). If every Light player is eliminated the Darkness wins. */
+function eliminatePlayer(p) {
+  withPlayerSync(p, () => {
+    p.eliminated = true; p.life = 0; p.pendingRes = false;
+    [...p.gens, ...p.lts, ...p.hand].forEach(c => { resetInst(c); p.discard.push(c); });
+    p.lts.forEach(l => l.attachments.forEach(a => { resetInst(a); p.discard.push(a); })); p.lts.forEach(l => l.attachments = []);
+    p.gens = []; p.lts = []; p.hand = []; p.mentor.destroyed = true; p.mentor.transformed = false; p.mentor.attachments = [];
+    log(`${multi() ? p.name + '\'s' : 'Your'} Life reached 0 again. ${multi() ? p.name + ' is' : 'You are'} eliminated.`, 'bad');
+  });
+  if (S.players.every(q => q.eliminated)) { S.gameOver = 'lose'; log(multi() ? 'Every Light player has fallen. Darkness wins.' : 'Your Life reached 0. Darkness wins.', 'bad'); }
+  else if (UI.eliminated) UI.eliminated(p);
+}
+/* Shared win: the moment the 5th Stronghold falls the Light wins together; then the highest MP is the champion (ties: most Strongholds demolished, then most Life left, else shared). */
+function standings() {
+  return S.players.map(p => ({ p, mp: p.mp, demo: p.demoCount, life: Math.max(0, p.life), out: p.eliminated }))
+    .sort((a, b) => b.mp - a.mp || b.demo - a.demo || b.life - a.life);
+}
+function checkWin() { if (G.demolished.length >= 5 && !G.gameOver) {
+  G.gameOver = 'win'; log('Five Strongholds demolished — the Light wins!', 'good');
+  const st = standings(), top = st[0];
+  const tied = st.filter(x => x.mp === top.mp && x.demo === top.demo && x.life === top.life);
+  G.champion = { ids: tied.map(x => x.p.idx), table: st.map(x => ({ idx: x.p.idx, name: x.p.name, mp: x.mp, demo: x.demo, life: x.life, out: x.out })) };
+  if (multi()) log(tied.length > 1 ? `${tied.map(x => x.p.name).join(' and ')} share the champion title with ${top.mp} MP.` : `${top.p.name} is the champion with ${top.mp} MP!`, 'good');
+} }
 
 /* ---------------- zones ---------------- */
 function removeFromZones(inst) {
@@ -754,9 +869,10 @@ function destroyFighter(inst, why = '') {
     G.mentor.attachments = []; G.mentor.transformed = false; G.mentor.destroyed = true;
     log(`${nameOf(inst)} was destroyed${why} and is removed from the game.`, 'bad'); return;
   }
-  const draw = inst.flags.drawOnDeath;
+  const draw = inst.flags.drawOnDeath, bond = inst.flags.natureSrc;
   toDiscard(inst); log(`${nameOf(inst)} was destroyed${why}.`, 'bad');
   if (draw) drawCards(1);
+  if (bond) for (const q of S.players) { const src = q.lts.find(l => l.uid === bond); if (src) withPlayerSync(q, () => { const a = getAtk(src), h = getMaxHp(src); src.permAtk += a; src.permHp += h; log(`Put On the New Nature: ${nameOf(src)} transforms and doubles its attack and HP (now ${getAtk(src)}/${getMaxHp(src)}).`, 'good'); UI.float(`[data-uid="${src.uid}"]`, 'ATK/HP ×2', 'buff'); }); }
 }
 
 /* ---------------- Strongholds ---------------- */
@@ -767,16 +883,20 @@ function damageSh(sh, n, src) {
   if (getCurHp(sh) <= 0) { demolish(sh); return true; }
   return false;
 }
-function demolish(sh) {
+function demolish(sh, opts = {}) {
   if (!G.activeSH.includes(sh)) return;
   const d = def(sh.id);
   let mp = d.mp || 0; const shame = shEffect('Shame') && d.name !== 'Shame';
   G.activeSH.splice(G.activeSH.indexOf(sh), 1);
-  G.demolished.push(sh); G.stats.demolishedThisTurn++;
+  G.demolished.push(sh); G.stats.demolishedThisTurn++; G.demoCount++;
   UI.float('#hudDemo', `${G.demolished.length}/5`, 'mp');
   log(`${d.name} was demolished! (${G.demolished.length}/5 Strongholds)`, 'good');
   if (shame) { mp = Math.ceil(mp / 2); log('Shame halves the MP reward.', 'dark'); }
-  gainMp(mp, `demolished ${d.name}`);
+  if (opts.partner && !opts.partner.eliminated) {   // Two or More: both players receive half of the printed MP, rounded up
+    const half = Math.ceil((d.mp || 0) / 2), each = shame ? Math.ceil(half / 2) : half; const me = P;
+    gainMp(each, `shared demolition of ${d.name}`);
+    withPlayerSync(opts.partner, () => { opts.partner.demoCount++; gainMp(each, `shared demolition of ${d.name} with ${me.name}`); });
+  } else gainMp(mp, `demolished ${d.name}`);
   if ((eff(G.mentor.id).static || {}).deborah && mentorPassivesOn() && G.demolished.length % 2 === 0) gainMp(1, 'Deborah the Judge');
   G.lts.forEach(l => { const s = eff(l.id).static || {}; if (s.demolishMp) gainMp(s.demolishMp, nameOf(l)); });
   checkWin();
@@ -796,6 +916,9 @@ function candidates(spec, ctx) {
     case 'deckSearch': list = G.deck.slice(); break;
     case 'darkPeek': list = ctx.peek || []; break;
     case 'exhaustedGen': list = G.gens.filter(g => g.exhausted); break;
+    case 'player': list = (spec.others ? otherLiving() : livingPlayers()).filter(q => !spec.needs || withPlayerSync(q, () => copyableCards().length > 0)); break;
+    case 'otherLt': list = otherLiving().flatMap(q => withPlayerSync(q, () => fighters())); break;
+    case 'ongoing': { const who = ((ctx && ctx.vars && ctx.vars[spec.ofPlayer]) || [])[0]; list = who ? withPlayerSync(who, () => copyableCards()) : []; break; }
   }
   list = list.filter(i => i !== self);
   const f = spec.filter;
@@ -807,13 +930,19 @@ function candidates(spec, ctx) {
   if (f === 'oneTimeScripted') list = list.filter(i => def(i.id).type === 'One Time' && (eff(i.id).play || []).length && i.id !== '120');
   return list;
 }
-const FROM_WORD = { inPlay: 'cards in play', lt: 'Living Truths in play', sh: 'Strongholds in play', hand: 'other cards in hand', discard: 'cards in your discard pile', exhaustedGen: 'spent Anointing cards' };
-function preSteps(steps) { const pre = []; for (const s of steps || []) { if (s.op !== 'choose' || ['reveal', 'deckSearch', 'darkPeek'].includes(s.from)) break; pre.push(s); } return pre; }
+/* Ongoing effects another player controls that Power of Agreement can copy for a round */
+const COPYABLE_STATIC = ['costLess', 'extraDraw', 'upkeepHeal', 'negateFirstAttack'];
+function copyableCards() { return [...G.gens, ...G.lts.filter(l => COPYABLE_STATIC.some(k => (eff(l.id).static || {})[k] != null))]; }
+const FROM_WORD = { player: 'other Light players', otherLt: 'Living Truths of other players', ongoing: 'ongoing effects', inPlay: 'cards in play', lt: 'Living Truths in play', sh: 'Strongholds in play', hand: 'other cards in hand', discard: 'cards in your discard pile', exhaustedGen: 'spent Anointing cards' };
+/* ifMulti picks the 2+ player steps when another Light player can be targeted, otherwise the solo steps (so solo play is exactly as before) */
+function expandMulti(steps) { return (steps || []).flatMap(s => s.op === 'ifMulti' ? expandMulti(otherLiving().length ? s.then : s.else) : [s]); }
+function preSteps(steps) { const pre = []; for (const s of expandMulti(steps)) { if (s.op !== 'choose' || ['reveal', 'deckSearch', 'darkPeek'].includes(s.from) || s.ofPlayer) break; pre.push(s); } return pre; }
 function stepsReason(steps, ctx) {
   for (const s of preSteps(steps)) {
     if (s.min > 0) {
       const n = candidates(s, ctx).length;
       if (n < s.min) {
+        if (s.from === 'player') return multi() ? 'No other Light player can be chosen right now.' : 'This card needs another Light player (not available in a solo game).';
         if (s.from === 'sh' && !G.activeSH.length) return 'No Stronghold is in play to target.';
         if (s.filter === 'hpLe6') return 'No Stronghold has 6 or less HP.';
         return `You need ${s.min} ${FROM_WORD[s.from] || 'cards'}${s.filter ? ' of the right kind' : ''} (you have ${n}).`;
@@ -868,18 +997,28 @@ function abilityReason(inst, ab) {
 /* ---------------- guided step runner ---------------- */
 async function runSteps(steps, ctx) {
   ctx.vars = ctx.vars || {};
-  for (const s of steps || []) {
+  for (const s of expandMulti(steps)) {
     if (G.gameOver) return 'done';
     if (s.op === 'choose') {
       const pre = !ctx.committed;
       const list = candidates(s, ctx);
       let picked;
+      if (list.length === 0 && s.min > 0 && pre && !['reveal', 'deckSearch', 'darkPeek'].includes(s.from)) { UI.toast(`There is no valid choice (${FROM_WORD[s.from] || 'targets'}).`); return 'cancelled'; }
       if (list.length === 0 && s.min === 0) picked = [];
       else if (list.length < s.min && !pre) picked = list; // best effort after commit
       else picked = await UI.choose({ ...s, list, cancellable: pre, title: ctx.title });
       if (picked === null) return 'cancelled';
       ctx.vars[s.as] = picked;
       continue;
+    }
+    if (s.op === 'agree') {   // another player must accept before anything is spent (Two or More)
+      const who = (ctx.vars[s.ref] || [])[0]; if (!who) continue;
+      const me = P;
+      const ans = await withPlayer(who, async () => { await handoff(who, { kind: 'ask', text: `${me.name} asks you a question` });
+        return UI.ask({ title: ctx.title, text: `${me.name} (${me.mentorName}) asks you to unite and share resources to demolish together:\n\n${s.text}\n\nDo you agree?`, buttons: [{ key: 'y', label: 'I agree', primary: true }, { key: 'n', label: 'No thanks' }] }); });
+      await handoff(me, { kind: 'back' });
+      if (ans !== 'y') { log(`${who.name} declined to unite with ${me.name}.`); UI.toast(`${who.name} declined.`); return 'cancelled'; }
+      log(`${who.name} agrees to unite with ${me.name}.`, 'good'); continue;
     }
     if (!ctx.committed) { const ok = await ctx.commit(); ctx.committed = true; if (ok === false) return 'negated'; }
     await doStep(s, ctx);
@@ -946,14 +1085,16 @@ async function doStep(s, ctx) {
     }
     case 'shield': {
       const until = G.round + (s.rounds || 1) - 1;
-      addShield({ kind: s.kind, until, n: s.n, names: s.names, mpOnUse: s.mpOnUse, src: ctx.title });
+      const targets = s.to ? (ctx.vars[s.to] || []) : [P], caster = P;
+      for (const t of targets) withPlayerSync(t, () => addShield({ kind: s.kind, until, n: s.n, names: s.names, mpOnUse: s.mpOnUse, src: ctx.title, by: caster.idx }));
+      if (s.to && targets.length) { log(`${ctx.title}: ${targets.map(t => t === caster ? 'you' : t.name).join(', ')} protected.`, 'good'); if (s.mpIfOther && targets.some(t => t !== caster)) gainMp(s.mpIfOther, ctx.title); break; }
       const txt = { preventAll: 'All damage to you is prevented this round.', noLifeLoss: 'You cannot lose Life this round.', cancelAttacks: 'Stronghold attacks against you are cancelled.', shProtect: 'You are protected from Stronghold effects.', lethalSave: 'If a Stronghold would deal lethal damage, you stay at 1 Life.', persecuted: 'If you lose Life to a Dark attack this round: +1 MP and draw 1.', prevent: `The next ${s.n} damage to you this round is prevented.`, immune: `You are immune to ${(s.names || []).join('/')}.` }[s.kind];
       log(`${ctx.title}: ${txt}`, 'good'); UI.toast(txt); break;
     }
-    case 'negateNext': L.forEach(sh => { sh.negateNext = true; log(`${nameOf(sh)}'s next attack against you will deal 0.`, 'good'); }); break;
+    case 'negateNext': L.forEach(sh => { sh.negateFor = [...(sh.negateFor || []), P.idx]; log(`${nameOf(sh)}'s next attack against you will deal 0.`, 'good'); }); break;
     case 'blockSh': L.forEach(sh => { sh.blockedRound = G.round; log(`${nameOf(sh)}'s effect is blocked this round.`, 'good'); }); break;
     case 'silence': L.forEach(sh => { sh.silenced = true; log(`${nameOf(sh)}'s abilities are cancelled permanently.`, 'good'); }); break;
-    case 'pacify': L.forEach(sh => { sh.pacifiedUntil = G.round + s.rounds - 1; log(`${nameOf(sh)} cannot target you for ${s.rounds} rounds.`, 'good'); }); break;
+    case 'pacify': L.forEach(sh => { sh.pacified = { ...(sh.pacified || {}), [P.idx]: G.round + s.rounds - 1 }; log(`${nameOf(sh)} cannot target you for ${s.rounds} rounds.`, 'good'); }); break;
     case 'fx': {
       const until = s.rounds ? G.round + s.rounds - 1 : null;
       if (s.key === 'bonusDrawLater' || s.key === 'skipDraw' || s.key === 'delaySummon' || s.key === 'skipDark') G.fx[s.key] = { value: (fxOn(s.key) || 0) + s.value, until: null };
@@ -997,6 +1138,64 @@ async function doStep(s, ctx) {
       const rest = G.reveal.slice(); G.reveal = []; G.deck.push(...rest.reverse());
       log(`Peace, Be Still: placed ${eqs.length} Equipment; the rest went back on top.`); break;
     }
+    case 'ifMulti': await runSteps(otherLiving().length ? s.then : s.else, { ...ctx, committed: true }); break;
+    case 'giveCard': { const to = (ctx.vars[s.to] || [])[0]; if (!to) break; for (const c of L) { removeFromZones(c); resetInst(c); to.hand.push(c); log(`You gave ${nameOf(c)} to ${to.name}.`, 'good'); } break; }
+    case 'lifeTo': { const to = (ctx.vars[s.to] || [])[0]; if (to) withPlayerSync(to, () => gainLife(N)); break; }
+    case 'healTo': {   // heal chosen player(s) / all other players / all players
+      const me = P; const targets = s.who === 'others' ? otherLiving() : s.who === 'all' ? livingPlayers() : (ctx.vars[s.to] || []);
+      let below = 0, count = 0;
+      for (const t of targets) withPlayerSync(t, () => { if (G.life < 15) below++; count++; heal(N, false); });
+      if (targets.some(t => t !== me)) me.stats.healedOther++;
+      if (s.mpIfBelowHalf && below) gainMp(s.mpIfBelowHalf, ctx.title);
+      if (s.mpPerPlayer && count) gainMp(s.mpPerPlayer * count, ctx.title);
+      break;
+    }
+    case 'drawAll': {
+      const me = P; let rare = 0, n = 0;
+      for (const t of livingPlayers()) withPlayerSync(t, () => { const dr = drawCards(s.n, true); n += dr.length; rare += dr.filter(c => isRare(def(c.id))).length; });
+      if (s.rareMpOnce && rare) gainMp(s.rareMpOnce, ctx.title);
+      break;
+    }
+    case 'anointOthers': for (const t of otherLiving()) withPlayerSync(t, () => addAnointing('C', N)); log(`${ctx.title}: every other Light player gains ${N} colorless anointing.`, 'good'); break;
+    case 'lifeOthers': { const x = ctx.x || 0; let tot = 0; for (const t of otherLiving()) { withPlayerSync(t, () => gainLife(x)); tot += x; } if (tot) gainMp(Math.floor(tot / 3), ctx.title); break; }
+    case 'discardDrawAll': {   // Enoch's Walk: every player discards 1 card of their choice, then draws 1; you gain 2 MP for each player who drew a rare
+      const me = P; let rares = 0;
+      for (const t of livingPlayers()) {
+        await withPlayer(t, async () => {
+          if (t !== me) await handoff(t, { kind: 'ask', text: `${ctx.title}: you discard 1 card, then draw 1` });
+          if (G.hand.length) { const pk = await UI.choose({ from: 'hand', list: G.hand.slice(), min: 1, max: 1, prompt: `${ctx.title}: discard 1 card, then you draw 1`, cancellable: false, title: ctx.title }); (pk || []).forEach(c => { toDiscard(c); log(`${t.name} discarded ${nameOf(c)}.`); }); }
+          const dr = drawCards(1, true); if (dr.some(c => isRare(def(c.id)))) rares++;
+        });
+      }
+      await handoff(me, { kind: 'back' });
+      if (rares) gainMp(2 * rares, ctx.title); break;
+    }
+    case 'returnAll': {   // Lead us not into temptation: every player may return 1 discarded card; you gain 1 MP per OPPONENT who does
+      const me = P; let others = 0;
+      for (const t of livingPlayers()) {
+        await withPlayer(t, async () => {
+          if (t !== me) await handoff(t, { kind: 'ask', text: `${ctx.title}: you may return 1 discarded card to your hand` });
+          if (!G.discard.length) return;
+          const pk = await UI.choose({ from: 'discard', list: G.discard.slice(), min: 0, max: 1, prompt: 'You may return 1 discarded card to your hand', cancellable: false, title: ctx.title });
+          for (const c of pk || []) { removeFromZones(c); resetInst(c); G.hand.push(c); log(`${t.name} returned ${nameOf(c)} to their hand.`); if (t !== me) others++; }
+        });
+      }
+      await handoff(me, { kind: 'back' });
+      if (others) gainMp(others, ctx.title); break;
+    }
+    case 'demolishShared': { const partner = (ctx.vars[s.with] || [])[0]; L.forEach(sh => { log(`${ctx.title}: ${P.name} and ${partner ? partner.name : 'a partner'} demolish ${nameOf(sh)} together.`); UI.float(`[data-uid="${sh.uid}"]`, 'DEMOLISHED', 'dmg'); demolish(sh, { partner }); }); break; }
+    case 'natureBond': L.forEach(t => { t.flags.natureSrc = ctx.source.uid; log(`${nameOf(ctx.source)} is bonded to ${nameOf(t)}: if it is destroyed, ${nameOf(ctx.source)} doubles its attack and HP.`); }); break;
+    case 'copyOngoing': for (const c of L) {
+      const d = def(c.id), st = eff(c.id).static || {};
+      if (d.type === 'Anointing') {
+        let col = d.colorCodes[0];
+        if (d.colorCodes.length > 1) col = await UI.ask({ title: ctx.title, text: 'Choose the color of anointing to gain (double the amount).', buttons: d.colorCodes.map(k => ({ key: k, label: COLOR_NAME[k], color: COLOR_HEX[k] })) }) || col;
+        addAnointing(col, genYield() * 2, '#hudPool'); log(`${ctx.title}: copied ${nameOf(c)} and gained double its anointing (${genYield() * 2} ${COLOR_NAME[col]}).`, 'good');
+      } else if (st.costLess) { G.fx.costLess = { value: (fxOn('costLess') || 0) + 1, until: G.round }; log(`${ctx.title}: your Truth cards cost 1 less this round (copied ${nameOf(c)}).`, 'good'); }
+      else if (st.extraDraw) { drawCards(st.extraDraw, true); log(`${ctx.title}: copied ${nameOf(c)}: you drew ${st.extraDraw}.`, 'good'); }
+      else if (st.upkeepHeal) { if (G.life >= G.maxLife) drawCards(1, true); else heal(1); log(`${ctx.title}: copied ${nameOf(c)}.`, 'good'); }
+      else if (st.negateFirstAttack) { addShield({ kind: 'prevent', n: 99, until: G.round, src: ctx.title, by: P.idx }); log(`${ctx.title}: copied ${nameOf(c)}: the first Stronghold attack against you this round deals 0.`, 'good'); }
+    } break;
     case 'manual': await UI.ask({ title: ctx.title, text: 'Apply this effect yourself:\n\n' + s.text, buttons: [{ key: 'ok', label: 'Done', primary: true }] }); break;
   }
 }
@@ -1004,8 +1203,10 @@ const COND = {
   truthsPlayed7: () => G.stats.truthsPlayed >= 7, redPlayed5: () => G.stats.redPlayed > 5, belowHalfLife: () => G.life < 15,
   hand7Truth: () => G.hand.filter(h => isTruth(def(h.id))).length >= 7, handLt3: () => G.hand.length < 3,
   demolishedThisTurn: () => G.stats.demolishedThisTurn > 0,
+  fewerPermanents: () => otherLiving().some(q => withPlayerSync(q, () => allInPlay().length) > allInPlay().length),
+  healedOtherThisTurn: () => G.stats.healedOther > 0,
 };
-const COND_TEXT = { truthsPlayed7: 'need 7+ Truth cards played this game', redPlayed5: 'need more than 5 red cards played this game', belowHalfLife: 'Life not below half', hand7Truth: 'need 7 Truth cards in hand', handLt3: 'hand has 3+ cards', demolishedThisTurn: 'no Stronghold demolished this turn' };
+const COND_TEXT = { truthsPlayed7: 'need 7+ Truth cards played this game', redPlayed5: 'need more than 5 red cards played this game', belowHalfLife: 'Life not below half', hand7Truth: 'need 7 Truth cards in hand', handLt3: 'hand has 3+ cards', demolishedThisTurn: 'no Stronghold demolished this turn', fewerPermanents: 'you do not have fewer permanent cards than another player', healedOtherThisTurn: 'you have not healed another player this turn' };
 
 function transformMentor() {
   if (G.mentor.transformed || G.mentor.destroyed) return;
@@ -1073,7 +1274,7 @@ async function playCard(inst, opts = {}) {
     };
     let res = await runSteps([...hostSteps, ...(e.play || [])], ctx);
     if (res === 'done' && e.cls === 'manual') {
-      await UI.ask({ title, text: `This card can't be automated in solo play.\n\n“${d.effect}”\n\n${e.note || ''}\nApply anything relevant yourself, then tap Done.`, buttons: [{ key: 'ok', label: 'Done', primary: true }] });
+      await UI.ask({ title, text: `This card can't be fully automated.\n\n“${d.effect}”\n\n${e.note || ''}\nApply anything relevant yourself, then tap Done.`, buttons: [{ key: 'ok', label: 'Done', primary: true }] });
     }
     if (d.type === 'One Time' && G.stack === inst) { G.stack = null; if (res !== 'negated') { G.discard.push(inst); UI.fly(inst.uid); } }
     if (res === 'cancelled') log(`You cancelled ${title}. Nothing was spent.`);
@@ -1138,11 +1339,14 @@ async function attack(inst, shPick) {
    resurrect (rulebook §8) = the first time Life hits 0 you are Defeated and come back at 15 Life at the start of your next turn (-5 MP, min 0); the second time you lose.
    mulligan = if the opening hand has no Anointing card, the player is offered ONE free redraw of the whole opening hand (offered once, at game start).
    addictions = how many anointing the Addictions Stronghold takes each round (was 2; now 1). */
-const DEFAULT_CFG = { first: 4, cadence: 2, firstCount: 1, life: 30, hand: 5, attackEvery: false, resurrect: true, mulligan: true, addictions: 1 };
+const DEFAULT_CFG = { first: 4, cadence: 2, firstCount: 1, life: 30, hand: 5, attackEvery: false, resurrect: true, mulligan: true, addictions: 1,
+  /* player-count scaling dials (applied per player beyond the first); byPlayers = per-count overrides of any setting */
+  lifePerExtra: 0, shHpPerExtra: 0, shHpPctPerExtra: 0, shAtkPerExtra: 0,
+  /* THE player-count scaling rule (balance study, Oct 2026): the first Dark Turn reveals one Stronghold per player, up to 3 (2 players: 2 Strongholds; 3 or 4 players: 3). Solo is unchanged. */
+  byPlayers: { 2: { firstCount: 2 }, 3: { firstCount: 3 }, 4: { firstCount: 3 } } };
 const DIFFICULTY = {
   easy:   { label: 'Easy',   blurb: 'The original pace: the first Stronghold rises at the end of Round 4, then every 2nd round. Relaxed and forgiving: a careful player wins roughly 8 games in 10.', cfg: { first: 4, cadence: 2, firstCount: 1 } },
-  normal: { label: 'Normal', blurb: 'Recommended. The first Stronghold rises at the end of Round 2, then every 2nd round, and you start with 28 Life. A careful player wins roughly half of their games.', cfg: { first: 2, cadence: 2, firstCount: 1, life: 28 } },
-  hard:   { label: 'Hard',   blurb: 'No breathing room: the first Stronghold rises at the end of Round 1, then every 2nd round. A careful player wins roughly 1 game in 3.', cfg: { first: 1, cadence: 2, firstCount: 1 } },
+  normal: { label: 'Normal', blurb: 'The standard game. The first Stronghold rises at the end of Round 2, then every 2nd round, and you start with 28 Life. A careful player wins roughly half of their games.', cfg: { first: 2, cadence: 2, firstCount: 1, life: 28 } },
 };
 let CFG = { ...DEFAULT_CFG };
 function isRevealRound(r) { return r >= CFG.first && (r - CFG.first) % CFG.cadence === 0; }
@@ -1164,7 +1368,7 @@ async function beginTurn() {
     // expire temporaries
     fighters().forEach(f => { f.tempAtk = 0; f.tempHp = 0; f.attachments.filter(a => a.expires != null && a.expires < G.round).forEach(a => { f.attachments.splice(f.attachments.indexOf(a), 1); resetInst(a); G.discard.push(a); log(`${nameOf(a)} expires and is discarded.`); }); });
     fighters().filter(f => getCurHp(f) <= 0).forEach(f => destroyFighter(f, ' (temporary HP ended)'));
-    G.stats.cardsThisTurn = 0; G.stats.spentThisTurn = 0; G.stats.demolishedThisTurn = 0; G.genPlayed = false; G.occultUsed = false;
+    G.stats.cardsThisTurn = 0; G.stats.spentThisTurn = 0; G.stats.demolishedThisTurn = 0; G.stats.healedOther = 0; G.genPlayed = false; G.occultUsed = false;
     if (fxOn('skipNextTurn')) {
       G.fx.skipNextTurn = null; log('Be Still: you skip this turn.', 'dark');
       await UI.announce({ title: 'Be Still', text: 'You skip this turn. You will draw 3 extra cards next turn.' });
@@ -1172,7 +1376,7 @@ async function beginTurn() {
     }
     G.phase = 'ready';
     [...G.gens, ...fighters()].forEach(c => { c.exhausted = false; c.attacksLeft = 0; });
-    log(`Round ${G.round}: you readied all your cards.`, 'phase');
+    log(multi() ? `Round ${G.round}: ${P.name} readied all their cards.` : `Round ${G.round}: you readied all your cards.`, 'phase');
     // stronghold start-of-round effects
     G.tax = G.taxNext; G.taxSource = G.taxNext ? 'Stronghold tax' : ''; G.taxNext = 0;
     if (shEffect('Addictions')) { G.tax += CFG.addictions; G.taxSource = 'Addictions'; log(`Addictions: the first ${CFG.addictions} anointing you make this turn ${CFG.addictions === 1 ? 'is' : 'are'} lost.`, 'dark'); }
@@ -1207,6 +1411,7 @@ async function nextPhase() {
 async function endTurn(skipped) {
   G.busy = true;
   try {
+    const me = P;
     G.phase = 'end';
     if (G.hand.length > 7) {
       const n = G.hand.length - 7;
@@ -1220,16 +1425,32 @@ async function endTurn(skipped) {
     }
     if (poolTotal(G.pool)) log(`${poolTotal(G.pool)} unspent anointing expired.`);
     G.pool = emptyPool(); G.tax = 0;
-    if (isDarkRound(G.round)) {
-      if (fxOn('skipDark')) { G.fx.skipDark.value--; if (G.fx.skipDark.value <= 0) G.fx.skipDark = null; log('Trance of the Spirit: you skip this Dark phase.', 'good'); await UI.announce({ title: 'Dark phase skipped', text: 'Trance of the Spirit keeps the Darkness at bay this round.' }); }
-      else await darkTurn();
+    /* who is next? (turn order = S.order; the Dark Turn comes after the LAST player of the round) */
+    const n = S.order.length, pos = S.order.indexOf(me.idx); let next = null, wrapped = false;
+    for (let k = 1; k <= n; k++) { const c = S.players[S.order[(pos + k) % n]]; if (pos + k >= n) wrapped = true; if (!c.eliminated) { next = c; break; } }
+    if (!next) return;   // everyone is eliminated (game over)
+    if (wrapped) {
+      if (isDarkRound(G.round)) {
+        const al = alivePlayers(), skippers = al.filter(q => withPlayerSync(q, () => !!fxOn('skipDark')));
+        if (al.length && skippers.length === al.length) {   // every Light player played Trance of the Spirit: the whole Dark phase (including the reveal) is skipped
+          skippers.forEach(q => withPlayerSync(q, () => { q.fx.skipDark.value--; if (q.fx.skipDark.value <= 0) q.fx.skipDark = null; }));
+          log('Trance of the Spirit: the Dark phase is skipped.', 'good'); await UI.announce({ title: 'Dark phase skipped', text: 'Trance of the Spirit keeps the Darkness at bay this round.' });
+        } else await darkTurn(skippers);
+      }
+      if (!G.gameOver) { G.round++; log(`— Round ${G.round} —`, 'phase'); if (isDarkRound(G.round)) UI.tip('darkSoon'); }
     }
-    if (!G.gameOver) { G.round++; G.phase = 'start'; log(`— Round ${G.round} —`, 'phase'); if (isDarkRound(G.round)) UI.tip('darkSoon'); }
+    if (!G.gameOver) {
+      setPlayer(next); G.phase = 'start';
+      if (multi()) log(`${next.name}'s turn.`, 'phase');
+      UI.render();
+      await handoff(next, { kind: 'turn' });
+    }
   } finally { G.busy = false; UI.render(); }
 }
 
 /* ---------------- Dark turn ---------------- */
-async function darkTurn() {
+/* Every Stronghold in play attacks EVERY Light player in turn order, one Stronghold at a time. */
+async function darkTurn(skippers = []) {
   G.phase = 'dark'; UI.render();
   log(`DARK TURN — round ${G.round}.`, 'dark');
   const reveal = isRevealRound(G.round);
@@ -1241,27 +1462,45 @@ async function darkTurn() {
     const nReveal = G.round === CFG.first ? Math.max(1, CFG.firstCount) : 1;
     for (let k = 0; k < nReveal && G.darkDeck.length; k++) {
     const sh = mk(G.darkDeck.pop()); G.activeSH.push(sh);
-    if (G.darkNegate.includes(sh.id)) { sh.negateNext = true; }
+    for (const q of S.players) if (q.darkNegate.includes(sh.id)) sh.negateFor = [...(sh.negateFor || []), q.idx];
     const d = def(sh.id);
-    log(`A Stronghold rises: ${d.name} (${d.atk} ATK / ${d.hp} HP). Effect: ${d.effect}`, 'dark');
+    log(`A Stronghold rises: ${d.name} (${getAtk(sh)} ATK / ${getMaxHp(sh)} HP). Effect: ${d.effect}`, 'dark');
     UI.render();
-    await UI.announce({ title: `Stronghold revealed: ${d.name}`, text: `${d.atk} ATK · ${d.hp} HP · worth ${d.mp} MP\n\nEffect while in play: ${d.effect}`, sh: sh.uid, dark: true });
+    await UI.announce({ title: `Stronghold revealed: ${d.name}`, text: `${getAtk(sh)} ATK · ${getMaxHp(sh)} HP · worth ${d.mp} MP\n\nEffect while in play: ${d.effect}`, sh: sh.uid, dark: true });
     UI.tip('stronghold');
-    if (d.name === 'Abandonment' && shEffect('Abandonment')) { G.fx.skipDraw = { value: (fxOn('skipDraw') || 0) + 1, until: null }; log('Abandonment: you will skip your next draw.', 'dark'); }
+    if (d.name === 'Abandonment') for (const q of alivePlayers()) withPlayerSync(q, () => { if (shEffect('Abandonment')) { q.fx.skipDraw = { value: (fxOn('skipDraw') || 0) + 1, until: null }; log(multi() ? `Abandonment: ${q.name} will skip their next draw.` : 'Abandonment: you will skip your next draw.', 'dark'); } });
     }
   } else if (reveal) log('The Dark Deck is empty — no new Stronghold.');
   const order = G.activeSH.slice();
-  for (const sh of order) { if (G.gameOver || G.pendingRes) break; if (!G.activeSH.includes(sh)) continue; await strongholdAttack(sh); }
+  const skipIdx = new Set(skippers.map(q => q.idx));
+  for (const sh of order) {
+    if (G.gameOver) break; if (!G.activeSH.includes(sh)) continue;
+    const resolved = [];
+    for (const q of alivePlayers()) {
+      if (G.gameOver || !G.activeSH.includes(sh)) break;
+      if (q.pendingRes) continue;   // Defeated players are out of the rest of this Dark Turn (they rise at the start of their next turn)
+      if (skipIdx.has(q.idx)) { withPlayerSync(q, () => log(`${sh && nameOf(sh)} does not attack ${q.name}: Trance of the Spirit.`, 'good')); continue; }
+      setPlayer(q); await handoff(q, { kind: 'attack', sh });
+      if (await strongholdAttack(sh)) resolved.push(q);
+    }
+    if (def(sh.id).name === 'Fear' && resolved.length) {   // Fear: the player with the LEAST anointing in play loses an additional 3 anointing (ties: all tied players)
+      const al = alivePlayers(), least = Math.min(...al.map(q => q.gens.length));
+      for (const q of resolved) if (q.gens.length === least) withPlayerSync(q, () => { if (shEffect('Fear')) { G.taxNext += 3; log(multi() ? `Fear: ${q.name} has the least anointing, so they will lose 3 more anointing next turn.` : 'Fear: you will lose 3 anointing next turn.', 'dark'); } });
+    }
+  }
+  for (const q of skippers) withPlayerSync(q, () => { if (q.fx.skipDark) { q.fx.skipDark.value--; if (q.fx.skipDark.value <= 0) q.fx.skipDark = null; log('Trance of the Spirit: you skip this Dark phase.', 'good'); } });
   G.window = null;
   log('The Dark turn ends.', 'dark');
 }
 function attackCancelReason(sh) {
-  if (sh.pacifiedUntil != null && sh.pacifiedUntil >= G.round) return `${nameOf(sh)} is shut down and cannot target you.`;
-  if (shieldOn('cancelAttacks')) return `${nameOf(sh)}'s attack is cancelled by your protection.`;
-  if (sh.negateNext) { sh.negateNext = false; return `${nameOf(sh)}'s attack is negated (deals 0).`; }
-  if (shieldOn('preventAll')) return `All damage to you is prevented this round.`;
+  const pac = sh.pacified && sh.pacified[P.idx];
+  if (pac != null && pac >= G.round) return `${nameOf(sh)} is shut down and cannot target ${multi() ? P.name : 'you'}.`;
+  if (shieldOn('cancelAttacks')) return `${nameOf(sh)}'s attack is cancelled by ${multi() ? P.name + '\'s' : 'your'} protection.`;
+  if (sh.negateFor && sh.negateFor.includes(P.idx)) { sh.negateFor = sh.negateFor.filter(i => i !== P.idx); return `${nameOf(sh)}'s attack is negated (deals 0).`; }
+  if (shieldOn('preventAll')) return `All damage to ${multi() ? P.name : 'you'} is prevented this round.`;
   return null;
 }
+/* Returns true when the attack reached the damage step (was not cancelled). */
 async function strongholdAttack(sh) {
   const d = def(sh.id);
   let cancel = attackCancelReason(sh);
@@ -1269,23 +1508,22 @@ async function strongholdAttack(sh) {
     const neg = G.lts.find(l => (eff(l.id).static || {}).negateFirstAttack && !l.flags.negUsed);
     if (neg) { neg.flags.negUsed = true; cancel = `${nameOf(neg)} reduces ${d.name}'s attack to 0.`; if ((eff(neg.id).static || {}).drawOnNegate) drawCards(1); }
   }
-  if (cancel) { log(cancel, 'good'); await UI.announce({ title: `${d.name} attacks`, text: cancel, sh: sh.uid }); return; }
+  if (cancel) { log(cancel, 'good'); await UI.announce({ title: `${d.name} attacks${multi() ? ' ' + P.name : ''}`, text: cancel, sh: sh.uid }); return false; }
   // reaction window
   G.window = 'reaction'; G.attackingSh = sh; UI.render();
   UI.tip('reaction');
-  await UI.window({ kind: 'reaction', sh, text: `${d.name} attacks you for ${getAtk(sh)} damage!`, sub: 'Reaction window: play a glowing Reaction card from your hand, or continue to choose blockers.', button: 'Continue to blocking' });
+  await UI.window({ kind: 'reaction', sh, text: `${d.name} attacks ${multi() ? P.name : 'you'} for ${getAtk(sh)} damage!`, sub: 'Reaction window: play a glowing Reaction card from your hand, or continue to choose blockers.', button: 'Continue to blocking' });
   G.window = null;
   cancel = attackCancelReason(sh);
-  if (cancel) { log(cancel, 'good'); await UI.announce({ title: `${d.name} attacks`, text: cancel, sh: sh.uid }); G.attackingSh = null; return; }
+  if (cancel) { log(cancel, 'good'); await UI.announce({ title: `${d.name} attacks${multi() ? ' ' + P.name : ''}`, text: cancel, sh: sh.uid }); G.attackingSh = null; return false; }
   let remaining = getAtk(sh);
   const prev = G.shields.find(s => s.kind === 'prevent' && active(s.until) && !s.used);
-  if (prev) { const p = Math.min(prev.n, remaining); remaining -= p; prev.used = true; log(`${prev.src}: prevented ${p} damage.`, 'good'); if (prev.mpOnUse && p > 0) gainMp(prev.mpOnUse, prev.src); }
-  if (fxOn('fearTaxMark')) {}
-  // blockers
+  if (prev) { const p = Math.min(prev.n, remaining); remaining -= p; prev.used = true; log(`${prev.src}: prevented ${p} damage.`, 'good'); if (prev.mpOnUse && p > 0) { const by = prev.by != null ? S.players[prev.by] : P; withPlayerSync(by, () => gainMp(prev.mpOnUse, prev.src)); } }
+  // blockers (a player blocks only with their OWN Living Truths)
   G.window = 'block'; UI.render(); UI.tip('block');
-  while (remaining > 0 && !G.gameOver && !G.pendingRes) {
+  while (remaining > 0 && !G.gameOver && !G.pendingRes && !G.eliminated) {
     const blockers = fighters().filter(f => getCurHp(f) > 0 && !(f.flags.untargetable >= G.round));
-    const pick = await UI.window({ kind: 'block', sh, remaining, blockers, text: `${d.name}: ${remaining} damage to assign`, sub: blockers.length ? 'Tap a Living Truth to block (it absorbs up to its HP), or send the rest to your Life.' : 'You have no blockers — the damage hits your Life.', button: `Take ${remaining} damage to Life` });
+    const pick = await UI.window({ kind: 'block', sh, remaining, blockers, text: `${d.name}: ${remaining} damage to assign${multi() ? ' to ' + P.name : ''}`, sub: blockers.length ? 'Tap a Living Truth to block (it absorbs up to its HP), or send the rest to your Life.' : 'You have no blockers — the damage hits your Life.', button: `Take ${remaining} damage to Life` });
     if (!pick) { loseLife(remaining, d.name); remaining = 0; break; }
     const b = pick; let assigned = Math.min(getCurHp(b), remaining); let taken = assigned;
     const hs = b.attachments.map(a => (eff(a.id).equip || {}).hostStatic || {});
@@ -1300,43 +1538,60 @@ async function strongholdAttack(sh) {
     if (getCurHp(b) <= 0) destroyFighter(b, ` blocking ${d.name}`);
     UI.render();
   }
-  if (d.name === 'Fear' && shEffect('Fear')) { G.taxNext += 3; log('Fear: you will lose 3 anointing next turn.', 'dark'); }
   G.window = null; G.attackingSh = null; UI.render();
+  return true;
 }
 
 /* ---------------- setup ---------------- */
-function startGame(deckIndex, opts = {}) {
-  _uid = 1; if (opts.seed != null) seedRng(opts.seed); else rng = Math.random;
+function makePlayer(i, deckIndex, name) {
   const deck = LVD_DATA.decks[deckIndex];
-  const preset = opts.difficulty && DIFFICULTY[opts.difficulty] ? DIFFICULTY[opts.difficulty].cfg : {};
-  CFG = { ...DEFAULT_CFG, ...preset, ...(opts.cfg || {}) };
-  G = {
-    cfg: { ...CFG }, difficulty: opts.difficulty && DIFFICULTY[opts.difficulty] ? opts.difficulty : null, maxLife: Math.max(30, CFG.life),
+  return { idx: i, uid: 'player' + i, name: name || ('Player ' + (i + 1)), color: PLAYER_COLORS[i], emblem: PLAYER_EMBLEMS[i],
     deckIndex, mentorName: deck.mentorName, mentor: mk(deck.mentorId, { transformed: false, destroyed: false }),
     deck: shuffle(deck.drawIds.map(id => mk(id))), hand: [], discard: [], exile: [], reveal: [], gens: [], lts: [],
-    pool: emptyPool(), life: CFG.life, mp: 0, round: 1, phase: 'start', genPlayed: false, occultUsed: false,
-    activeSH: [], darkDeck: shuffle(LVD_DATA.strongholdIds.slice()), demolished: [], log: [], gameOver: null,
-    fx: {}, shields: [], tax: 0, taxNext: 0, darkNegate: [], playerActions: [], usedActions: [], stack: null, window: null, busy: false,
-    stats: { truthsPlayed: 0, redPlayed: 0, cardsThisTurn: 0, spentThisTurn: 0, demolishedThisTurn: 0, abideLoss: 0 },
-  };
-  drawCards(CFG.hand, false);
-  G.mulliganOffer = !!(CFG.mulligan && !G.hand.some(c => def(c.id).type === 'Anointing'));   // offered once, at game start, only if the opening hand has no Anointing card
-  G.mulliganTaken = false;
-  log(`${G.difficulty ? 'Difficulty: ' + DIFFICULTY[G.difficulty].label + '. ' : ''}You chose ${deck.mentorName}. Life ${CFG.life}. You drew ${CFG.hand} cards. Demolish 5 Strongholds to win!`, 'phase');
+    pool: emptyPool(), life: CFG.life, maxLife: Math.max(30, CFG.life), mp: 0, genPlayed: false, occultUsed: false,
+    fx: {}, shields: [], tax: 0, taxNext: 0, darkNegate: [], playerActions: [], usedActions: [],
+    stats: { truthsPlayed: 0, redPlayed: 0, cardsThisTurn: 0, spentThisTurn: 0, demolishedThisTurn: 0, abideLoss: 0, healedOther: 0 },
+    resurrected: false, pendingRes: false, eliminated: false, mulliganOffer: false, mulliganTaken: false, demoCount: 0 };
+}
+/* startGame(deckIndex | [deckIndex, ...], opts): 1 to 4 Light players (same-device pass-and-play), each with their own Mentor/starter deck. */
+function startGame(decks, opts = {}) {
+  _uid = 1; if (opts.seed != null) seedRng(opts.seed); else rng = Math.random;
+  const list = Array.isArray(decks) ? decks : [decks], n = list.length;
+  const preset = opts.difficulty && DIFFICULTY[opts.difficulty] ? DIFFICULTY[opts.difficulty].cfg : {};
+  CFG = { ...DEFAULT_CFG, ...preset, ...(opts.cfg || {}) };
+  if (CFG.byPlayers && CFG.byPlayers[n]) CFG = { ...CFG, ...CFG.byPlayers[n] };
+  CFG.life = CFG.life + (CFG.lifePerExtra || 0) * (n - 1);
+  S = { cfg: { ...CFG }, difficulty: opts.difficulty && DIFFICULTY[opts.difficulty] ? opts.difficulty : null,
+    round: 1, phase: 'start', activeSH: [], darkDeck: null, demolished: [], log: [], gameOver: null, stack: null, window: null, busy: false,
+    players: [], cur: 0, order: [], viewer: -1, attackingSh: null, champion: null };
+  S.players = list.map((d, i) => makePlayer(i, d, opts.names && opts.names[i]));
+  S.darkDeck = shuffle(LVD_DATA.strongholdIds.slice());
+  const first = n > 1 ? (opts.first != null ? opts.first : Math.floor(rng() * n)) : 0;
+  S.order = Array.from({ length: n }, (_, k) => (first + k) % n);
+  P = S.players[first]; S.cur = first; G = G_VIEW;
+  for (const p of S.players) withPlayerSync(p, () => {
+    drawCards(CFG.hand, false);
+    p.mulliganOffer = !!(CFG.mulligan && !p.hand.some(c => def(c.id).type === 'Anointing'));   // offered once, at game start, only if the opening hand has no Anointing card
+  });
+  const names = S.players.map(p => p.mentorName).join(', ');
+  log(n > 1 ? `${DIFFICULTY[S.difficulty] ? 'Difficulty: ' + DIFFICULTY[S.difficulty].label + '. ' : ''}${n} Light players: ${S.players.map(p => p.name + ' (' + p.mentorName + ')').join(', ')}. Life ${CFG.life} each. ${S.players[first].name} goes first. Demolish 5 Strongholds together to win!`
+    : `${DIFFICULTY[S.difficulty] ? 'Difficulty: ' + DIFFICULTY[S.difficulty].label + '. ' : ''}You chose ${names}. Life ${CFG.life}. You drew ${CFG.hand} cards. Demolish 5 Strongholds to win!`, 'phase');
   return G;
 }
 
 /* Free mulligan: shuffle the opening hand back into the deck and draw a fresh one. Only possible once, at game start, when the opening hand has no Anointing card. */
-function takeMulligan() {
-  if (!G || !G.mulliganOffer) return false;
-  G.mulliganOffer = false; G.mulliganTaken = true;
-  const n = G.hand.length; G.deck.push(...G.hand.splice(0)); G.deck = shuffle(G.deck);
-  drawCards(n, false);
-  const an = G.hand.filter(c => def(c.id).type === 'Anointing').length;
-  log(`Free mulligan: you shuffled your opening hand away and drew ${n} new cards (${an} Anointing).`, 'phase');
-  return true;
+function takeMulligan(who) {
+  const p = who || P; if (!S || !p || !p.mulliganOffer) return false;
+  return withPlayerSync(p, () => {
+    G.mulliganOffer = false; G.mulliganTaken = true;
+    const n = G.hand.length; G.deck.push(...G.hand.splice(0)); G.deck = shuffle(G.deck);
+    drawCards(n, false);
+    const an = G.hand.filter(c => def(c.id).type === 'Anointing').length;
+    log(`Free mulligan: ${multi() ? p.name + ' shuffled their' : 'you shuffled your'} opening hand away and drew ${n} new cards (${an} Anointing).`, 'phase');
+    return true;
+  });
 }
-function declineMulligan() { if (G) G.mulliganOffer = false; }
+function declineMulligan(who) { const p = who || P; if (p) p.mulliganOffer = false; }
 
 /* ============================================================
    Light VS Darkness — UI layer
@@ -1348,6 +1603,12 @@ let WINDOW = null;   // active dark window (reaction / block)
 let TIPS_ON = true;
 try { TIPS_ON = localStorage.getItem('lvd_tips_off') !== '1'; } catch (e) {}
 let DIFF = 'normal'; try { const v = localStorage.getItem('lvd_difficulty'); if (DIFFICULTY[v]) DIFF = v; } catch (e) {}
+let NPL = 1; try { const v = +localStorage.getItem('lvd_players'); if (v >= 1 && v <= 4) NPL = v; } catch (e) {}
+let NAMES = ['', '', '', ''], PICKS = [null, null, null, null], PICKING = 0;
+try { const nm = JSON.parse(localStorage.getItem('lvd_names') || 'null'); if (Array.isArray(nm)) NAMES = nm.slice(0, 4).concat(['', '', '', '']).slice(0, 4); } catch (e) {}
+let PASSING = null;   // index of the player the pass-the-phone cover is waiting for (hand hidden while set)
+const TRAY_FROM = ['discard', 'reveal', 'deckSearch', 'darkPeek', 'player', 'otherLt', 'ongoing'];
+const pName = i => (NAMES[i] || '').trim() || `Player ${i + 1}`;
 let SEEN = {}; try { SEEN = JSON.parse(localStorage.getItem('lvd_tips_seen') || '{}'); } catch (e) {}
 
 const CLS_LABEL = { auto: 'Automated', partial: 'Guided (part manual)', manual: 'Manual' };
@@ -1433,6 +1694,9 @@ function backImg(cls) { const b = artSrc('back', 't'); return b ? `<img class="$
 /* ---------------- render ---------------- */
 function render() {
   if (!G) return;
+  if (PASSING != null) { $('#hand').innerHTML = ''; return; }   // cover screen is up: never draw anyone's hand behind it
+  if (multi()) { document.documentElement.style.setProperty('--pc', P.color); $('#hud').classList.add('mp'); } else $('#hud').classList.remove('hidden', 'mp');
+  renderPlayerBar();
   $('#hudLife').textContent = G.life; $('#hudMp').textContent = G.mp;
   $('#hudDemo').textContent = `${G.demolished.length}/5`; $('#hudRound').textContent = G.round;
   $('#hudDeck').textContent = G.deck.length; $('#hudDiscardN').textContent = G.discard.length;
@@ -1462,10 +1726,11 @@ function render() {
   const sz = $('#shRow');
   if (!G.activeSH.length) {
     const until = Math.max(0, CFG.first - G.round);
-    sz.innerHTML = `<div class="empty">${G.demolished.length ? 'No Strongholds standing right now.' : until > 0 ? `Quiet for now — the first Stronghold rises at the end of Round ${CFG.first}.` : 'The first Stronghold rises at the end of this round.'}</div>`;
+    const fcN = CFG.firstCount > 1 ? `${CFG.firstCount} Strongholds rise` : 'the first Stronghold rises';
+    sz.innerHTML = `<div class="empty">${G.demolished.length ? 'No Strongholds standing right now.' : until > 0 ? `Quiet for now — ${fcN} at the end of Round ${CFG.first}.` : `${fcN[0].toUpperCase() + fcN.slice(1)} at the end of this round.`}</div>`;
   } else sz.innerHTML = G.activeSH.map(sh => {
     const d = def(sh.id), pct = Math.round(100 * getCurHp(sh) / getMaxHp(sh));
-    const tags = [sh.silenced ? 'silenced' : '', sh.pacifiedUntil >= G.round ? 'shut down' : '', sh.negateNext ? 'next attack 0' : '', sh.blockedRound === G.round ? 'effect blocked' : ''].filter(Boolean);
+    const tags = [sh.silenced ? 'silenced' : '', (sh.pacified && sh.pacified[P.idx] >= G.round) ? 'shut down' : '', (sh.negateFor && sh.negateFor.includes(P.idx)) ? 'next attack 0' : '', sh.blockedRound === G.round ? 'effect blocked' : ''].filter(Boolean);
     const sart = artSrc(artKey(sh), 't');
     if (sart) return `<div class="card sh art ${G.attackingSh === sh ? 'attacking' : ''}" data-uid="${sh.uid}">${artImg(sart, 'cart')}
       <span class="shmp">${d.mp} MP</span><button class="info" data-info="${sh.uid}">i</button>
@@ -1480,14 +1745,14 @@ function render() {
       <div class="hpbar"><i style="width:${pct}%"></i><b>${getCurHp(sh)}/${getMaxHp(sh)} HP</b></div>
       <div class="cstats"><span class="stat atk">${getAtk(sh)}</span></div></div>`;
   }).join('');
-  $('#darkCount').textContent = `${G.difficulty ? DIFFICULTY[G.difficulty].label + ' · ' : ''}${G.darkDeck.length} in Dark Deck · ${G.demolished.length}/5 demolished`;
+  $('#darkCount').textContent = `${G.difficulty ? DIFFICULTY[G.difficulty].label + ' · ' : ''}${multi() ? G.players.length + ' players · ' : ''}${G.darkDeck.length} in Dark Deck · ${G.demolished.length}/5 demolished`;
   const bk = backImg('pileimg');
   if (bk && G.darkDeck.length) sz.insertAdjacentHTML('afterbegin', `<div class="pile darkpile" title="Dark Deck (face down)">${bk}<b>${G.darkDeck.length}</b><small>Dark Deck</small></div>`);
   $('#hudDeckIcon').innerHTML = backImg('hudback') || '🂠';
   $('#darkZone').classList.toggle('compact', !G.activeSH.length);
   // effect chips
   const chips = [];
-  G.activeSH.forEach(sh => { const n = def(sh.id).name; const on = shEffect(n); chips.push(`<span class="chip ${on ? 'bad' : 'off'}" data-chip="${esc(def(sh.id).effect)}">${esc(n)}${on ? '' : ' (no effect on you)'}</span>`); });
+  G.activeSH.forEach(sh => { const n = def(sh.id).name; const on = shEffect(n); chips.push(`<span class="chip ${on ? 'bad' : 'off'}" data-chip="${esc(def(sh.id).effect)}">${esc(n)}${on ? '' : multi() ? ` (no effect on ${esc(P.name)})` : ' (no effect on you)'}</span>`); });
   G.shields.filter(s => active(s.until) && !s.used && s.kind !== 'immune').forEach(s => chips.push(`<span class="chip good" data-chip="${esc(s.src)}">${{ preventAll: 'No damage', noLifeLoss: 'No Life loss', cancelAttacks: 'Attacks cancelled', shProtect: 'Effect shield', lethalSave: 'Crown of Life', persecuted: 'Persecuted', prevent: 'Prevent ' + s.n }[s.kind] || s.kind}</span>`));
   G.shields.filter(s => s.kind === 'immune' && active(s.until)).forEach(s => chips.push(`<span class="chip good" data-chip="${esc(s.src)}">Immune: ${esc(s.names.join('/'))}</span>`));
   for (const [k, l] of Object.entries({ doubleGen: 'Double anointing', costLess: 'Cards cost 1 less', morningStar: 'Morning Star', seatedMp: 'MP doubled', abide: 'Abide: +1 draw', skipDraw: 'Skip next draw', skipNextTurn: 'Skip next turn', delaySummon: 'Reveal delayed', skipDark: 'Skip Dark phase' })) if (fxOn(k)) chips.push(`<span class="chip ${['skipDraw', 'skipNextTurn'].includes(k) ? 'bad' : 'good'}">${l}</span>`);
@@ -1516,7 +1781,8 @@ function render() {
     return `<div class="card hand ${artSrc(artKey(h), 't') ? 'art' : ''} ${r ? 'blocked' : 'playable'} ${d.isReaction ? 'reaction' : ''}" data-uid="${h.uid}">${cardFace(h, 'hand')}</div>`;
   }).join('') || '<div class="empty">Your hand is empty.</div>';
   // ticker
-  $('#ticker').innerHTML = G.log.slice(0, 2).map((l, i) => `<div class="${l.kind} ${i ? 'old' : ''}">${esc(l.msg)}</div>`).join('');
+  $('#ticker').innerHTML = G.log.slice(0, 2).map((l, i) => `<div class="${l.kind} ${i ? 'old' : ''}">${l.who != null ? `<span class="lwho" style="--pc:${G.players[l.who].color}">${esc(G.players[l.who].name)}</span>` : ''}${esc(l.msg)}</div>`).join('');
+  { const zh = document.querySelector('#lightZone h4 span'); if (zh) zh.textContent = multi() ? `${P.name}'s battlefield · ${P.mentorName}` : 'Your battlefield'; const hh = document.querySelector('#handArea h4 span'); if (hh) hh.textContent = multi() ? `${P.name}'s hand` : 'Your hand'; }
   renderPrompt();
   if ($('#logDrawer').classList.contains('open')) renderLog();
   if (G.gameOver) showEnd();
@@ -1534,12 +1800,12 @@ function hintSaysDone() {
   return false;
 }
 function hintText() {
-  if (G.gameOver) return G.gameOver === 'win' ? 'Victory! The Light prevails.' : 'Defeat. Darkness prevails.';
+  if (G.gameOver) return G.gameOver === 'win' ? (multi() ? 'Victory! The Light prevails together.' : 'Victory! The Light prevails.') : 'Defeat. Darkness prevails.';
   if (WINDOW) return WINDOW.text;
   if (PROMPT) return PROMPT.prompt;
   const playable = G.hand.filter(h => !playReason(h));
   switch (G.phase) {
-    case 'start': return `Round ${G.round}. Tap “Begin turn” to ready your cards and draw.${isDarkRound(G.round) ? ' ⚠ Darkness acts at the end of this round.' : ''}`;
+    case 'start': return `${multi() ? P.name + ', it is your turn. ' : ''}Round ${G.round}. Tap “Begin turn” to ready your cards and draw.${isDarkRound(G.round) ? ' ⚠ Darkness acts at the end of this round (after the last player).' : ''}`;
     case 'anointing': return !G.genPlayed && G.hand.some(h => def(h.id).type === 'Anointing') ? 'Play one Anointing card from your hand (glowing), then tap Next.' : playable.length ? 'Tap Anointing cards to add color, or play a glowing card (costs are paid for you).' : 'Tap Next to go to your Main phase.';
     case 'main': { const n = playable.filter(h => def(h.id).type !== 'Anointing').length; return n ? `${n} card${n > 1 ? 's' : ''} glow — tap one to read and play it. Costs are paid automatically.` : 'Nothing else is playable. Tap Next to attack.'; }
     case 'attack': if (!G.activeSH.length) return 'No Strongholds to attack yet. Tap End turn.'; return fighters().some(f => !attackReason(f)) ? 'Tap a glowing Living Truth to attack a Stronghold.' : 'No ready attackers left. Tap End turn.';
@@ -1561,10 +1827,10 @@ function renderPrompt() {
   if (PROMPT) {
     const p = PROMPT, n = p.selected.length;
     const counter = p.max > 1 ? ` (${n}/${p.max === p.min ? p.min : 'up to ' + p.max})` : '';
-    const tray = ['discard', 'reveal', 'deckSearch', 'darkPeek'].includes(p.from);
+    const tray = TRAY_FROM.includes(p.from);
     bar.className = 'promptbar';
     bar.innerHTML = `<div class="ptitle">${esc(p.title || 'Choose')}</div><div class="ptext">${esc(p.prompt)}${counter}</div>
-      ${tray ? `<div class="tray">${p.list.map(i => `<div class="card tray ${artSrc(artKey(i), 't') ? 'art' : ''}" data-uid="${i.uid}">${cardFace(i, 'tray')}</div>`).join('')}</div>` : ''}
+      ${tray ? `<div class="tray">${p.list.map(i => p.from === 'player' ? `<div class="card tray ptile" data-uid="${i.uid}" style="--pc:${i.color}"><b>${i.emblem} ${esc(i.name)}${i === P ? ' (you)' : ''}</b><small>${esc(i.mentorName)}</small><small>❤ ${i.life} · ✦ ${i.mp} · ${i.hand.length} cards in hand</small></div>` : `<div class="card tray ${artSrc(artKey(i), 't') ? 'art' : ''}" data-uid="${i.uid}">${cardFace(i, 'tray')}</div>`).join('')}</div>` : ''}
       <div class="pbtns">
         ${p.cancellable ? `<button id="promptCancel" class="btn">Cancel</button>` : ''}
         ${p.max === 1 && p.min === 1 && !tray ? '' : `<button id="promptConfirm" class="btn primary" ${n >= p.min && n <= p.max ? '' : 'disabled'}>${p.doneLabel && !n ? p.doneLabel : n === 0 && p.min === 0 ? 'Skip' : 'Confirm'}${counter}</button>`}
@@ -1595,7 +1861,7 @@ function togglePick(uid) {
   const p = PROMPT; const item = p.list.find(i => i.uid === uid); if (!item) return;
   const at = p.selected.indexOf(item);
   if (at >= 0) p.selected.splice(at, 1);
-  else { if (p.max === 1) { p.selected = [item]; if (!['discard', 'reveal', 'deckSearch', 'darkPeek'].includes(p.from)) return finishPrompt([item]); } else if (p.selected.length < p.max) p.selected.push(item); else { toast(`You can choose at most ${p.max}.`); } }
+  else { if (p.max === 1) { p.selected = [item]; if (!TRAY_FROM.includes(p.from)) return finishPrompt([item]); } else if (p.selected.length < p.max) p.selected.push(item); else { toast(`You can choose at most ${p.max}.`); } }
   render();
 }
 
@@ -1607,15 +1873,50 @@ UI.ask = ({ title, text, buttons }) => new Promise(res => {
   m.classList.remove('hidden');
   m.querySelectorAll('.ask-btn').forEach(el => el.onclick = () => { m.classList.add('hidden'); res(buttons[+el.dataset.i].key); });
 });
-UI.announce = ({ title, text, dark }) => new Promise(res => {
+const annNow = ({ title, text, dark }) => new Promise(res => {
   const m = $('#announce');
   m.innerHTML = `<div class="modal ${dark ? 'darkann' : ''}"><div class="anntitle">${esc(title)}</div><p class="pre">${esc(text)}</p><button id="announceOk" class="btn primary">Continue</button></div>`;
   m.classList.remove('hidden'); render();
   $('#announceOk').onclick = () => { m.classList.add('hidden'); res(); };
 });
+let ANN_CHAIN = Promise.resolve();   // announcements queue up, so a Defeated notice never collides with the next pass-the-phone screen
+UI.announce = o => (ANN_CHAIN = ANN_CHAIN.then(() => annNow(o)));
 function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), 2600); }
 UI.toast = toast;
-UI.defeated = () => { UI.announce({ title: '✝ You are Defeated!', text: 'Your Life reached 0. The Dark phase ends here.\n\nAt the start of your next turn you will Resurrect at 15 Life and lose 5 MP (minimum 0). Your cards stay in play. This happens only once: if your Life reaches 0 again, the game is lost.', dark: true }); };
+UI.defeated = p => { const m = multi(), w = m ? p.name : 'You';
+  UI.announce({ title: m ? `✝ ${p.name} is Defeated!` : '✝ You are Defeated!', text: m
+    ? `${p.name}'s Life reached 0. ${p.name} is out of the rest of this Dark Turn; the other players keep fighting.\n\nAt the start of ${p.name}'s next turn they will Resurrect at 15 Life and lose 5 MP (minimum 0). Their cards stay in play. This happens only once: if their Life reaches 0 again, they are eliminated.`
+    : 'Your Life reached 0. The Dark phase ends here.\n\nAt the start of your next turn you will Resurrect at 15 Life and lose 5 MP (minimum 0). Your cards stay in play. This happens only once: if your Life reaches 0 again, the game is lost.', dark: true }); };
+UI.eliminated = p => { UI.announce({ title: `☠ ${p.name} is eliminated`, text: `${p.name}'s Life reached 0 a second time. Their cards leave play and they take no more turns, but their Maturity Points still count. The other players fight on.`, dark: true }); };
+/* Pass-the-phone cover: hides every hand until the next player taps "I'm ready" */
+UI.pass = ({ player, kind, sh, text }) => ANN_CHAIN.then(() => new Promise(res => {
+  PASSING = player.idx; closeSheet(); { const t = $('#tip'); if (t) t.classList.add('hidden'); }
+  { const h = $('#hand'); if (h) h.innerHTML = ''; const hc = $('#handCount'); if (hc) hc.textContent = ''; }   // nobody's hand may stay in the page while the phone changes hands
+  const why = kind === 'attack' ? `⚔ ${def(sh.id).name} attacks ${player.name}. ${player.name} chooses their own Reactions and blockers.`
+    : kind === 'mulligan' ? `Before Round 1: ${player.name} decides about a free mulligan (their opening hand has no Anointing card).`
+    : kind === 'start' ? `Round 1 begins. ${player.name} takes the first turn.`
+    : kind === 'ask' ? text : kind === 'back' ? `Back to ${player.name} to finish the card.` : `Round ${S.round}: it is ${player.name}'s turn.`;
+  const el = $('#pass'); el.style.setProperty('--pc', player.color);
+  el.innerHTML = `<div class="pcard"><div class="pemblem">${player.emblem}</div><div class="pto">Pass the phone to</div><h2>${esc(player.name)}</h2>
+    <div class="pmentor">${esc(player.mentorName)} · ❤ ${player.life} · ✦ ${player.mp}${player.pendingRes ? ' · ✝ rising' : ''}</div>
+    <p class="pwhy">${esc(why)}</p><p class="phide">Every hand is hidden. Only ${esc(player.name)} should look at the screen after tapping.</p>
+    <button id="passReady" class="btn primary">I’m ready</button></div>`;
+  el.classList.remove('hidden');
+  $('#passReady').onclick = () => { el.classList.add('hidden'); PASSING = null; render(); res(); };
+}));
+function peek(i) {
+  const q = G.players[i];
+  const lts = (q.mentor.transformed && !q.mentor.destroyed ? [q.mentor] : []).concat(q.lts).map(l => withPlayerSync(q, () => `${nameOf(l)} ${getAtk(l)}/${getCurHp(l)}`));
+  UI.ask({ title: `${q.emblem} ${q.name} · ${q.mentorName}`, text: `Life ${Math.max(0, q.life)} · MP ${q.mp}${q.eliminated ? '\nEliminated (cards left play)' : q.pendingRes ? '\nDefeated, rising at the start of their next turn' : q.resurrected ? '\nResurrection used' : '\nResurrection ready'}\nCards in hand: ${q.hand.length} (hidden)\nAnointing cards in play: ${q.gens.length}\nLiving Truths: ${lts.join(', ') || 'none'}\nStrongholds demolished by them: ${q.demoCount}`, buttons: [{ key: 'ok', label: 'Close', primary: true }] });
+}
+function renderPlayerBar() {
+  const bar = $('#playerBar'); if (!bar) return;
+  if (!multi()) { bar.classList.add('hidden'); return; }
+  bar.classList.remove('hidden');
+  const role = G.gameOver ? 'game over' : G.phase === 'dark' ? (G.attackingSh ? `⚔ defending vs ${def(G.attackingSh.id).name}` : 'Dark turn') : 'your turn';
+  bar.innerHTML = `<div class="pcur" style="--pc:${P.color}"><b>${P.emblem} ${esc(P.name)}</b><span>${esc(P.mentorName)} · ${esc(role)}</span></div>` +
+    G.players.filter(q => q !== P).map(q => `<button class="pchip ${q.eliminated ? 'out' : ''}" data-peek="${q.idx}" style="--pc:${q.color}">${q.emblem} ${esc(q.name)} ❤${Math.max(0, q.life)} ✦${q.mp}${q.pendingRes ? ' ✝' : ''}</button>`).join('');
+}
 UI.render = render;
 UI.float = (sel, text, cls) => {
   const el = typeof sel === 'string' ? document.querySelector(sel) : sel;
@@ -1724,6 +2025,7 @@ document.addEventListener('click', async ev => {
   if (info) { ev.stopPropagation(); return openSheet(info.dataset.info); }
   if (ev.target.closest('#sheet') && ev.target.id === 'sheet') return closeSheet();
   const chip = ev.target.closest('[data-chip]'); if (chip) return toast(chip.dataset.chip);
+  const pk = ev.target.closest('[data-peek]'); if (pk && G) return peek(+pk.dataset.peek);
   const pa = ev.target.closest('[data-pa]'); if (pa && G && !G.busy) return usePlayerAction(G.playerActions[+pa.dataset.pa]);
   if (ev.target.id === 'promptConfirm' && PROMPT) return finishPrompt(PROMPT.selected.slice());
   if (ev.target.id === 'promptCancel' && PROMPT) return finishPrompt(null);
@@ -1739,18 +2041,65 @@ document.addEventListener('click', async ev => {
   openSheet(uid);
 });
 
-function renderLog() { $('#logList').innerHTML = G.log.map(l => `<div class="${l.kind}"><span class="lr">R${l.round}</span> ${esc(l.msg)}</div>`).join(''); }
+function renderLog() { $('#logList').innerHTML = G.log.map(l => `<div class="${l.kind}"><span class="lr">R${l.round}</span> ${l.who != null ? `<span class="lwho" style="--pc:${G.players[l.who].color}">${esc(G.players[l.who].name)}</span>` : ''}${esc(l.msg)}</div>`).join(''); }
 function showEnd() {
   const m = $('#endScreen'); if (!m.classList.contains('hidden')) return;
-  $('#endTitle').textContent = G.gameOver === 'win' ? '✦ The Light Wins! ✦' : 'Darkness Prevails';
-  $('#endBody').textContent = G.gameOver === 'win' ? `You demolished ${G.demolished.length} Strongholds in ${G.round} rounds with ${G.life} Life left. Maturity Points: ${G.mp}.${G.difficulty ? ' (' + DIFFICULTY[G.difficulty].label + ')' : ''}` : `Your Life reached 0 in round ${G.round}${G.resurrected ? ', after your one Resurrection was already used' : ''}. Strongholds demolished: ${G.demolished.length}/5. MP: ${G.mp}.${G.difficulty ? ' (' + DIFFICULTY[G.difficulty].label + ')' : ''}`;
+  const mu = multi(), win = G.gameOver === 'win';
+  $('#endTitle').textContent = win ? (mu ? '✦ The Light Wins Together! ✦' : '✦ The Light Wins! ✦') : 'Darkness Prevails';
+  const dl = G.difficulty ? ' (' + DIFFICULTY[G.difficulty].label + ')' : '';
+  if (!mu) $('#endBody').textContent = win ? `You demolished ${G.demolished.length} Strongholds in ${G.round} rounds with ${G.life} Life left. Maturity Points: ${G.mp}.${dl}` : `Your Life reached 0 in round ${G.round}${G.resurrected ? ', after your one Resurrection was already used' : ''}. Strongholds demolished: ${G.demolished.length}/5. MP: ${G.mp}.${dl}`;
+  else {
+    const st = standings(), top = G.champion ? G.champion.ids : [];
+    $('#endBody').textContent = win
+      ? `${G.demolished.length} Strongholds demolished in ${G.round} rounds, together.${dl}\n${top.length > 1 ? 'Champions (a tie): ' + top.map(i => G.players[i].name).join(' and ') : 'Champion: ' + G.players[top[0]].name} with ${st[0].mp} Maturity Points.`
+      : `Every Light player has fallen in round ${G.round}. Strongholds demolished: ${G.demolished.length}/5.${dl}`;
+    $('#endTable').innerHTML = st.map(x => `<div class="erow ${win && top.includes(x.p.idx) ? 'champ' : ''}" style="--pc:${x.p.color}"><b>${win && top.includes(x.p.idx) ? '🏆 ' : ''}${x.p.emblem} ${esc(x.p.name)}</b><span>${esc(x.p.mentorName)} · ${x.out ? 'eliminated' : '❤ ' + x.life}${x.p.resurrected && !x.out ? ' ✝' : ''} · 🏰 ${x.demo}</span><b style="flex:none;color:var(--gold2)">✦ ${x.mp}</b></div>`).join('');
+  }
+  if (!mu) $('#endTable').innerHTML = '';
   m.classList.remove('hidden');
 }
-function buildSelect() {
-  const logo = artSrc('logo', 't'); if (logo) $('#logoWrap').innerHTML = `<img id="logoImg" src="${logo}" alt="Light VS Darkness">`;
-  $('#mentorGrid').innerHTML = LVD_DATA.decks.map((d, i) => { const ma = artSrc(String(d.mentorId).padStart(3, '0'), 't'); return `<button class="mentor-btn" data-deck="${i}">${ma ? `<img class="mthumb" src="${ma}" alt="">` : ''}<span class="mpip" style="background:${COLOR_HEX[d.color]}"></span><span><b>${esc(d.mentorName)}</b><small>${esc(d.colorName)} deck · ${esc(def(d.mentorId).effect)}</small></span></button>`; }).join('');
-  document.querySelectorAll('[data-deck]').forEach(b => b.onclick = () => newGame(+b.dataset.deck));
+const scaleFor = n => (DEFAULT_CFG.byPlayers && DEFAULT_CFG.byPlayers[n]) || {};
+function scaleLine(n) {
+  const c = { ...DEFAULT_CFG, ...DIFFICULTY[DIFF].cfg, ...scaleFor(n) };
+  if (n === 1) return `Solo: ${c.life} Life, and one Stronghold rises at a time.`;
+  return `${n} players: ${c.life} Life each. Scaling rule: the first Dark Turn reveals ${c.firstCount} Strongholds at once (one per player, up to 3). Every Stronghold attacks every player, and you win together.`;
 }
+function renderSelect() {
+  const logo = artSrc('logo', 't'); if (logo && !$('#logoImg')) $('#logoWrap').innerHTML = `<img id="logoImg" src="${logo}" alt="Light VS Darkness">`;
+  $('#plBtns').innerHTML = [1, 2, 3, 4].map(n => `<button class="dbtn ${n === NPL ? 'on' : ''}" role="radio" aria-checked="${n === NPL}" data-npl="${n}">${n === 1 ? 'Solo' : n + ' players'}</button>`).join('');
+  $('#plBtns').querySelectorAll('[data-npl]').forEach(b => b.onclick = () => setPlayers(+b.dataset.npl));
+  $('#scaleBlurb').textContent = scaleLine(NPL);
+  const multiSel = NPL > 1;
+  $('#roster').innerHTML = multiSel ? Array.from({ length: NPL }, (_, i) => `<div class="rrow ${PICKING === i ? 'cur' : ''} ${PICKS[i] != null ? 'done' : ''}" data-pick="${i}" style="--pc:${PLAYER_COLORS[i]}"><span class="remb">${PLAYER_EMBLEMS[i]}</span>
+    <input class="rname" data-name="${i}" maxlength="14" placeholder="Player ${i + 1}" value="${esc(NAMES[i])}" aria-label="Player ${i + 1} name"><span class="rmen">${PICKS[i] != null ? esc(LVD_DATA.decks[PICKS[i]].mentorName) : PICKING === i ? 'choose a Mentor ↓' : 'tap to choose'}</span></div>`).join('') : '';
+  $('#roster').querySelectorAll('.rrow').forEach(r => r.onclick = ev => { PICKING = +r.dataset.pick; renderSelect(); if (ev.target.classList.contains('rname')) { const el = $(`.rname[data-name="${PICKING}"]`); if (el) el.focus(); } });
+  $('#roster').querySelectorAll('.rname').forEach(inp => { inp.onclick = ev => ev.stopPropagation(); inp.oninput = () => { NAMES[+inp.dataset.name] = inp.value; try { localStorage.setItem('lvd_names', JSON.stringify(NAMES)); } catch (e) {} }; });
+  $('#pickTitle').textContent = multiSel ? (PICKS.slice(0, NPL).every(x => x != null) ? 'Everyone has a Mentor. Tap a player above to change theirs.' : `${pName(PICKING)}: choose your Mentor`) : 'Choose your Mentor';
+  $('#mentorGrid').innerHTML = LVD_DATA.decks.map((d, i) => {
+    const ma = artSrc(String(d.mentorId).padStart(3, '0'), 't'); const owner = multiSel ? PICKS.slice(0, NPL).indexOf(i) : -1;
+    return `<button class="mentor-btn ${owner >= 0 && owner !== PICKING ? 'taken' : ''} ${owner === PICKING ? 'mine' : ''}" data-deck="${i}" style="--pc:${PLAYER_COLORS[PICKING]}">${owner >= 0 ? `<span class="owner" style="--pc:${PLAYER_COLORS[owner]}">${PLAYER_EMBLEMS[owner]}</span>` : ''}${ma ? `<img class="mthumb" src="${ma}" alt="">` : ''}<span class="mpip" style="background:${COLOR_HEX[d.color]}"></span><span><b>${esc(d.mentorName)}</b><small>${esc(d.colorName)} deck · ${esc(def(d.mentorId).effect)}</small></span></button>`;
+  }).join('');
+  document.querySelectorAll('[data-deck]').forEach(b => b.onclick = () => pickMentor(+b.dataset.deck));
+  const ready = multiSel && PICKS.slice(0, NPL).every(x => x != null);
+  $('#startRow').classList.toggle('hidden', !multiSel); $('#btnStart').disabled = !ready;
+  $('#btnStart').textContent = ready ? `Begin the pilgrimage (${NPL} players) ▶` : 'Choose a Mentor for every player';
+}
+function buildSelect() { renderSelect(); }
+function setPlayers(n) {
+  NPL = n; try { localStorage.setItem('lvd_players', String(n)); } catch (e) {}
+  for (let i = n; i < 4; i++) PICKS[i] = null;
+  const nx = PICKS.slice(0, n).findIndex(x => x == null); PICKING = nx >= 0 ? nx : 0;
+  renderSelect(); renderDiff();
+}
+function pickMentor(d) {
+  if (NPL === 1) return newGame(d);   // solo: one tap starts the game
+  const owner = PICKS.slice(0, NPL).indexOf(d);
+  if (owner >= 0 && owner !== PICKING) return toast(`${pName(owner)} already has that Mentor. Each player needs a different Mentor.`);
+  PICKS[PICKING] = d;
+  const nx = PICKS.slice(0, NPL).findIndex(x => x == null); if (nx >= 0) PICKING = nx;
+  renderSelect();
+}
+function startFromSelect() { if (NPL > 1 && PICKS.slice(0, NPL).every(x => x != null)) newGame(PICKS.slice(0, NPL), { names: Array.from({ length: NPL }, (_, i) => pName(i)) }); }
 function setDifficulty(k) {
   if (!DIFFICULTY[k]) return; DIFF = k; try { localStorage.setItem('lvd_difficulty', k); } catch (e) {}
   renderDiff();
@@ -1760,23 +2109,37 @@ function renderDiff() {
   box.innerHTML = Object.entries(DIFFICULTY).map(([k, v]) => `<button class="dbtn ${k === DIFF ? 'on' : ''}" role="radio" aria-checked="${k === DIFF}" data-diff="${k}">${esc(v.label)}</button>`).join('');
   box.querySelectorAll('[data-diff]').forEach(b => b.onclick = () => setDifficulty(b.dataset.diff));
   $('#diffBlurb').textContent = DIFFICULTY[DIFF].blurb;
-  const hd = $('#howDark'); if (hd) hd.textContent = scheduleText({ ...DEFAULT_CFG, ...DIFFICULTY[DIFF].cfg });
+  const sb = $('#scaleBlurb'); if (sb) sb.textContent = scaleLine(NPL);
+  const hd = $('#howDark'); if (hd) hd.textContent = scheduleText({ ...DEFAULT_CFG, ...DIFFICULTY[DIFF].cfg, ...scaleFor(NPL) });
 }
 async function newGame(i, opts) {
-  PROMPT = null; WINDOW = null;
+  PROMPT = null; WINDOW = null; PASSING = null; { const pe = $('#pass'); if (pe) pe.classList.add('hidden'); } ['#ask', '#announce'].forEach(x => $(x).classList.add('hidden'));
   startGame(i, { difficulty: DIFF, ...(opts || {}) });
+  const S0 = S;
   const ds = darkScheduleText(); const hd = $('#howDark'); if (hd) hd.textContent = ds.text;
   $('#selectScreen').classList.add('hidden'); $('#endScreen').classList.add('hidden'); $('#app').classList.remove('hidden');
   render();
-  if (G.mulliganOffer) {   // rulebook-adjacent house rule: one free redraw when the opening hand has no Anointing card
-    const g0 = G;
-    const k = await UI.ask({ title: 'Free mulligan', text: `Your opening hand has no Anointing card, so you could not make any power on your first turn:\n\n${G.hand.map(nameOf).join(', ')}\n\nYou may shuffle these 5 cards back and draw 5 new ones, once and for free. The new hand is final.`, buttons: [{ key: 'redraw', label: 'Redraw my 5 cards', primary: true }, { key: 'keep', label: 'Keep this hand' }] });
-    if (G === g0) { if (k === 'redraw') { takeMulligan(); toast('New hand drawn.'); } else declineMulligan(); render(); }
+  /* free mulligan, one player at a time: each player sees only their own opening hand (rule: offered once, only if the opening 5 have no Anointing card) */
+  for (const idx of S.order) {
+    const p = S.players[idx];
+    if (!p.mulliganOffer) continue;
+    setPlayer(p);
+    if (multi()) await handoff(p, { kind: 'mulligan' });
+    render();
+    const k = await UI.ask({ title: multi() ? `Free mulligan for ${p.name}` : 'Free mulligan', text: `${multi() ? p.name + ', your' : 'Your'} opening hand has no Anointing card, so you could not make any power on your first turn:\n\n${p.hand.map(nameOf).join(', ')}\n\nYou may shuffle these 5 cards back and draw 5 new ones, once and for free. The new hand is final.`, buttons: [{ key: 'redraw', label: 'Redraw my 5 cards', primary: true }, { key: 'keep', label: 'Keep this hand' }] });
+    if (S !== S0 || !G) return;
+    if (k === 'redraw') { takeMulligan(p); toast('New hand drawn.'); } else declineMulligan(p);
+    render();
   }
+  if (S !== S0 || !G) return;
+  setPlayer(S.order[0]);
+  if (multi()) await handoff(P, { kind: 'start' });
+  if (S !== S0 || !G) return;
+  render();
   UI.tip('welcome');
 }
 function init() {
-  buildSelect(); renderDiff();
+  buildSelect(); renderDiff(); $('#btnStart').onclick = startFromSelect;
   $('#primaryBtn').onclick = () => nextPhase();
   $('#btnLog').onclick = () => { renderLog(); $('#logDrawer').classList.add('open'); };
   $('#btnCloseLog').onclick = () => $('#logDrawer').classList.remove('open');
@@ -1785,10 +2148,10 @@ function init() {
   $('#btnHow2').onclick = () => $('#howTo').classList.remove('hidden');
   $('#btnCloseHow').onclick = () => $('#howTo').classList.add('hidden');
   $('#btnTips').onclick = () => { setTips(!TIPS_ON); SEEN = {}; try { localStorage.setItem('lvd_tips_seen', '{}'); } catch (e) {} toast(TIPS_ON ? 'Tips are on.' : 'Tips are off.'); };
-  $('#btnRestart').onclick = $('#btnQuit').onclick = () => { if (G && !G.gameOver && !confirm('Quit this game?')) return; G = null; PROMPT = null; WINDOW = null; ['#ask', '#announce', '#endScreen', '#tip'].forEach(s => $(s).classList.add('hidden')); $('#app').classList.add('hidden'); $('#selectScreen').classList.remove('hidden'); };
+  $('#btnRestart').onclick = $('#btnQuit').onclick = () => { if (G && !G.gameOver && !confirm('Quit this game?')) return; G = null; PROMPT = null; WINDOW = null; PASSING = null; ['#ask', '#announce', '#endScreen', '#tip', '#pass'].forEach(s => $(s).classList.add('hidden')); renderSelect(); $('#app').classList.add('hidden'); $('#selectScreen').classList.remove('hidden'); };
 }
 window.LVD = {
-  get G() { return G; }, get PROMPT() { return PROMPT; }, get WINDOW() { return WINDOW; }, get DIFF() { return DIFF; }, setDifficulty, DIFFICULTY, get CFG() { return CFG; }, takeMulligan, declineMulligan,
+  get G() { return G; }, get S() { return S; }, get PASSING() { return PASSING; }, get NPL() { return NPL; }, get PICKS() { return PICKS; }, setPlayers, pickMentor, startFromSelect, peek, standings, setPlayer, get PROMPT() { return PROMPT; }, get WINDOW() { return WINDOW; }, get DIFF() { return DIFF; }, setDifficulty, DIFFICULTY, get CFG() { return CFG; }, takeMulligan, declineMulligan,
   newGame, startGame, playCard, attack, useAbility, nextPhase, effectiveCost, canPay, canAfford, playReason, render, mk, def, eff,
   getAtk, getCurHp, getMaxHp, shEffect, setTips, EFFECTS, finishPrompt, togglePick, finishWindow,
 };
